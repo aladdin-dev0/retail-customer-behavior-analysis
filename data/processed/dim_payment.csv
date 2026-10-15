@@ -1,0 +1,7 @@
+payment_id,payment_method
+1,Venmo
+2,Cash
+3,Credit Card
+4,PayPal
+5,Bank Transfer
+6,Debit Card

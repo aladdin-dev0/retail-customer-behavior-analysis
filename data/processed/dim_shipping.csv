@@ -1,0 +1,7 @@
+shipping_id,shipping_type,sales_channel
+1,Express,Online Shipping
+2,Free Shipping,Online Shipping
+3,Next Day Air,Online Shipping
+4,Standard,Online Shipping
+5,2-Day Shipping,Online Shipping
+6,Store Pickup,In-Store Pickup
