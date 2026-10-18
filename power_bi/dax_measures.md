@@ -208,3 +208,64 @@ SWITCH(
     "#e74c3c"                                     -- Coral Red
 )
 ```
+
+---
+
+## 6. What-If Scenario Simulation Measures (Female Subscription Gap Forecast)
+
+### 6.1 What-If Parameter Setup:
+In Power BI Desktop, go to **Modeling** > **New Parameter** > **Numeric Range**:
+- **Name:** `Female Subscription Adoption Rate`
+- **Data type:** Decimal number (Format as Percentage `%`)
+- **Minimum:** `0.0` (0%)
+- **Maximum:** `1.0` (100%)
+- **Increment:** `0.05` (5%)
+- **Default:** `0.40` (40%)
+
+Power BI creates the parameter table and selected value measure:
+```dax
+Female Adoption Rate Value = 
+SELECTEDVALUE('Female Subscription Adoption Rate'[Female Subscription Adoption Rate], 0.40)
+```
+
+### 6.2 Simulated Female Subscribers Count
+```dax
+Simulated Female Subscribers = 
+ROUND(
+    CALCULATE(
+        [Total Customers],
+        dim_customers[gender] = "Female"
+    ) * [Female Adoption Rate Value],
+    0
+)
+```
+*Format:* Whole Number `#,##0`
+
+### 6.3 Incremental Simulated Annual Revenue ($)
+*Logic:* Each subscriber contributes recurring annual basket frequency. With average annual repeat multiplier of 2.8 orders at female AOV ($60.25):
+```dax
+Simulated Incremental Revenue = 
+[Simulated Female Subscribers] * 
+CALCULATE([Average Order Value], dim_customers[gender] = "Female") * 
+2.8
+```
+*Format:* Currency `\$#,##0`
+
+### 6.4 Total Projected Revenue ($)
+```dax
+Total Projected Revenue = 
+[Total Revenue] + [Simulated Incremental Revenue]
+```
+*Format:* Currency `\$#,##0`
+
+### 6.5 Projected Revenue Lift (%)
+```dax
+Projected Revenue Lift % = 
+DIVIDE(
+    [Simulated Incremental Revenue],
+    [Total Revenue],
+    0
+)
+```
+*Format:* Percentage `+0.0%`
+

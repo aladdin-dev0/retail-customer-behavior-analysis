@@ -83,6 +83,13 @@
   - **Title:** Geographic Sales Revenue Across US States
   - **Location:** `dim_customers[location]`
   - **Color Saturation:** `[Total Revenue]`
+- **Visual 5 (Interactive What-If Simulation Panel - Bottom Ribbon):**
+  - **What-If Slicer Slider:** `Female Subscription Adoption Rate` (0% to 100%, step 5%, default 40%).
+  - **Dynamic Card 1:** `Simulated Female Subscribers` (e.g., `499 Subscribers` at 40%).
+  - **Dynamic Card 2:** `Simulated Incremental Revenue` (e.g., `+$84.2K`).
+  - **Dynamic Card 3:** `Total Projected Revenue` (e.g., `$317.3K`).
+  - **Dynamic Card 4:** `Projected Revenue Lift %` (e.g., `+36.1%`).
+  - **Business Purpose:** Directly answers leadership's question on expected sales lift if the female subscription barrier is addressed.
 
 ---
 
