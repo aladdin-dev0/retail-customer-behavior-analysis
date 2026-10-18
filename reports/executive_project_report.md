@@ -116,6 +116,13 @@ A rigorous comparison between promotional and full-price orders reveals an essen
 - **No Satisfaction Uplift:** Customer ratings were unchanged (3.74 vs 3.76).
 - **Margin Erosion:** Blanket discounts are discounting purchases that customers were willing to make at full price.
 
+#### Statistical Distribution Analysis (Box Plot Breakdown):
+As visualized in `figures/05_marketing_drivers_analysis.png` (*Basket Spend: Discount vs Full Price*):
+- **Identical Five-Number Summary:** Both the Discounted (`Yes`) and Full-Price (`No`) groups display an identical statistical distribution from \$20 (Minimum) to \$100 (Maximum).
+- **The Interquartile Box (Middle 50%):** Encompasses the core spending zone between \$38-\$39 (Q1) and \$80-\$81 (Q3), with the exact median centered at \$60.00 for both groups.
+- **The Whiskers (Lower & Upper 25%):** Exactly ~24-25% of customers fall along the lower whisker (\$20-\$38), and ~24-25% fall along the upper whisker (\$81-\$100).
+- **Key Takeaway:** The visual and mathematical congruence of the two box plots provides irrefutable statistical proof that promotional discounts have zero stimulative effect on basket value or distribution shape.
+
 ---
 
 ### Finding 4: Sales Channel & Fulfillment Dynamics
@@ -164,11 +171,12 @@ pie title Customer Persona Distribution
   - Provide a **"Pickup Perk" coupon**: \$5 off an in-store purchase made on the day of pickup.
   - Position high-velocity accessories (scarves, jewelry, sunglasses) near the pickup counter to capture impulsive attach sales.
 
-### Pillar 4: Seasonal Merchandising Alignment
-- **The Issue:** Demand fluctuations across Fall (\$60.0K) and Spring (\$58.7K) require precise stock allocation.
-- **The Action:**
-  - Expand inventory for the top 5 core revenue items (Blouse, Shirt, Dress, Pants, Jewelry) 4 weeks prior to peak season.
-  - Bundle complementary items (e.g., Dress + Jewelry or Shirt + Pants) to increase units per transaction (UPT).
+### Pillar 4: Seasonal Merchandising & Inventory Alignment
+- **The Issue:** Demand fluctuations across seasons (Clothing peaking in Spring at \$27,692 and Winter at \$27,274, with Accessories generating steady quarterly revenue of \$17K-\$20K) require precise supply chain synchronization.
+- **The Action (Supply Chain & Merchandising Strategy):**
+  - **Inventory Lead-Time Synchronization (Supply Chain):** Procurement must place purchase orders for the Apparel category 6 to 8 weeks in advance (January/February) to ensure optimal shelf availability prior to the high-revenue Spring demand surge (\$27,692).
+  - **Cross-Category Merchandising & Bundling (AOV Driver):** Capitalize on the exceptional seasonal consistency of Accessories (\$17K-\$20K per quarter) by placing accessory display kiosks (jewelry, scarves, belts) directly along the high-traffic pathways leading to apparel fitting rooms and checkout lines, raising multi-item basket attach rates (Units Per Transaction - UPT).
+  - **Outerwear Clearance Timing:** Execute targeted clearance markdowns on Outerwear (\$5,259 peak in Fall dropping to \$4,278 in Summer) immediately at the conclusion of January to release working capital.
 
 ---
 

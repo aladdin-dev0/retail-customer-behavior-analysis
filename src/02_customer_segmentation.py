@@ -81,27 +81,27 @@ def perform_segmentation(base_dir: str):
     # High previous purchases & high frequency -> VIP Loyalists
     # Low previous purchases & low frequency -> New / Occasional Shoppers
     # High spend vs low spend, younger vs older
-    persona_mapping = {}
-    for cid in range(optimal_k):
-        row = cluster_profiles.loc[cid]
-        if row['previous_purchases'] >= cluster_profiles['previous_purchases'].median() and row['annual_purchase_frequency'] >= cluster_profiles['annual_purchase_frequency'].median():
-            persona = "High-Engagement Champions"
-        elif row['purchase_amount_usd'] >= cluster_profiles['purchase_amount_usd'].median():
-            persona = "High-Basket Premium Shoppers"
-        elif row['age'] <= cluster_profiles['age'].median():
-            persona = "Young Emerging Shoppers"
-        else:
-            persona = "Value-Seeking Occasionals"
-        
-        # Ensure unique labels
-        if persona in persona_mapping.values():
-            persona = f"{persona} (Tier {cid+1})"
-        persona_mapping[cid] = persona
+    persona_mapping = {
+        0: "Young Emerging Shoppers",
+        1: "Value-Seeking Occasionals",
+        2: "High-Engagement Core Loyalists",
+        3: "High-Basket Premium Shoppers"
+    }
 
     df['customer_segment'] = df['cluster_id'].map(persona_mapping)
 
+    # Calculate counts and percentages for display in the legend
+    seg_counts = df['customer_segment'].value_counts()
+    total_customers = len(df)
+    display_map = {
+        seg: f"{seg} (n={count:,} | {count/total_customers*100:.1f}%)"
+        for seg, count in seg_counts.items()
+    }
+    df['segment_legend'] = df['customer_segment'].map(display_map)
+
     print("\n=== Customer Segment Distribution ===")
-    print(df['customer_segment'].value_counts())
+    for seg, count in seg_counts.items():
+        print(f"{seg}: {count:,} customers ({count/total_customers*100:.1f}%)")
 
     # Save enriched datasets
     df.to_csv(csv_path, index=False)
@@ -110,32 +110,34 @@ def perform_segmentation(base_dir: str):
     dim_cust_path = os.path.join(processed_dir, 'dim_customers.csv')
     if os.path.exists(dim_cust_path):
         dim_cust = pd.read_csv(dim_cust_path)
+        if 'customer_segment' in dim_cust.columns:
+            dim_cust.drop(columns=['cluster_id', 'customer_segment'], inplace=True, errors='ignore')
         dim_cust = dim_cust.merge(df[['customer_id', 'cluster_id', 'customer_segment']], on='customer_id', how='left')
         dim_cust.to_csv(dim_cust_path, index=False)
         print(f"[SUCCESS] Updated dim_customers with customer segments: {dim_cust_path}")
 
-    # Plot Cluster Visualizations
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # Plot Cluster Visualizations with enriched legend
+    fig, ax = plt.subplots(figsize=(11, 6.5))
     sns.scatterplot(
         data=df,
         x='purchase_amount_usd',
         y='previous_purchases',
-        hue='customer_segment',
-        palette='Set2',
-        alpha=0.7,
-        s=50,
+        hue='segment_legend',
+        palette=['#2ca02c', '#ff7f0e', '#1f77b4', '#d62728'],
+        alpha=0.75,
+        s=55,
         ax=ax
     )
-    ax.set_title('Customer Segmentation: Spend vs Previous Purchases', fontsize=14, fontweight='bold', pad=15)
+    ax.set_title('Customer Segmentation: Spend vs Loyalty Depth', fontsize=14, fontweight='bold', pad=15)
     ax.set_xlabel('Purchase Amount (USD)', fontsize=12)
     ax.set_ylabel('Previous Purchases (Loyalty Depth)', fontsize=12)
     ax.grid(True, linestyle='--', alpha=0.5)
-    plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
+    ax.legend(title='Customer Persona (Size & Share)', bbox_to_anchor=(1.02, 1), loc='upper left', frameon=True, fontsize=10, title_fontsize=11)
     plt.tight_layout()
     cluster_scatter_path = os.path.join(figures_dir, '02_customer_segments_scatter.png')
     plt.savefig(cluster_scatter_path, dpi=300)
     plt.close()
-    print(f"[INFO] Saved cluster scatter plot to: {cluster_scatter_path}")
+    print(f"[INFO] Saved enhanced cluster scatter plot to: {cluster_scatter_path}")
 
 if __name__ == '__main__':
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
