@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "Card_Projected_Revenue_Lift",
+  "position": {
+    "x": 1510.0,
+    "y": 660.0,
+    "z": 10000.0,
+    "width": 370.0,
+    "height": 370.0,
+    "tabOrder": 10000.0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Projected Revenue Lift %"
+                }
+              },
+              "queryRef": "_Measures.Projected Revenue Lift %",
+              "nativeQueryRef": "Projected Revenue Lift %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
