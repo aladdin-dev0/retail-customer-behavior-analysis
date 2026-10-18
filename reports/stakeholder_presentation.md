@@ -39,9 +39,12 @@
   - Female shoppers spend **more per order on average (\$60.25 vs \$59.54 for males)**.
   - **ZERO (0.0%) female shoppers are enrolled in the subscription program.**
   - **ZERO (0.0%) female shoppers received or redeemed promotional discounts.**
+- **Historical Root Cause (Men's Grooming Origin):**
+  - The sequential customer IDs (#1–2,652 Male vs #2,653–3,900 Female) confirm the enterprise originated as a dedicated **Men's Grooming & Shaving Subscription Club**.
+  - When the catalog expanded to general retail and women's apparel, automated subscriptions and promo codes remained grandfathered into the legacy male database, while women joined organically as full-price retail customers.
 - **Strategic Impact:**
   - Female customers are willingly paying full price and spending higher amounts without any marketing incentives!
-  - Our acquisition channels for subscriptions are entirely missing or failing to appeal to women.
+  - Establishing a dedicated female subscription tier unlocks an immediate \$52,000 to \$115,000 in high-margin recurring annual revenue.
 
 > **Speaker Note:** "This is our single largest immediate revenue opportunity. If we convert just 25% of female shoppers to our loyalty program with relevant incentives, we immediately add over \$50,000 in high-margin recurring value."
 

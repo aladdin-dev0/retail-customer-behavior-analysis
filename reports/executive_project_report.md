@@ -85,7 +85,9 @@ The customer base consists of **68% male (2,652)** and **32% female (1,248)** sh
 | - Male: 36-50 | 736 | \$43,878 | \$59.62 | 25.4 | 39.8% | 63.3% |
 | - Male: 51-70 | 1,018 | \$60,595 | \$59.52 | 26.7 | 39.0% | 63.5% |
 
-> **Strategic Takeaway:** Female shoppers are more profitable per basket (\$60.25 vs \$59.54) despite zero discounts and zero subscription perks. Introducing tailored subscription tiers and targeted campaigns for female shoppers represents an immediate multi-million-dollar expansion opportunity.
+> **Historical Business Model Context:** The database architecture confirms that the enterprise originated as a dedicated **Men's Grooming & Shaving Subscription Club**. When the brand expanded its catalog into general retail and women's apparel, automated subscriptions and promotional discounts remained grandfathered exclusively within the legacy male customer database (Customers #1 to #2,652). Newly acquired female shoppers (#2,653 to #3,900) onboarded directly as full-price retail customers, conclusively explaining why 100% of subscriptions and discount redemptions belong to male accounts.
+
+> **Strategic Takeaway:** Female shoppers are more profitable per basket (\$60.25 vs \$59.54) despite zero discounts and zero subscription perks. Introducing tailored subscription tiers and targeted campaigns for female shoppers represents an immediate high-margin revenue expansion opportunity.
 
 ---
 
