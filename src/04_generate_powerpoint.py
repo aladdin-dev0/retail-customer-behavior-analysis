@@ -2,6 +2,7 @@
 04_generate_powerpoint.py
 Generates a native, professional 16:9 Microsoft PowerPoint presentation (.pptx)
 for the Retail Customer Shopping Behavior Analysis project.
+Matches the 10-slide sequence of interactive_presentation.html with 100% precision.
 """
 
 import os
@@ -63,14 +64,45 @@ def create_deck():
         tf.word_wrap = True
         p = tf.paragraphs[0]
         p.text = title_text
-        p.font.size = Pt(24)
+        p.font.size = Pt(23)
         p.font.bold = True
         p.font.color.rgb = NAVY
 
         p2 = tf.add_paragraph()
         p2.text = subtitle_text
-        p2.font.size = Pt(13)
+        p2.font.size = Pt(12.5)
         p2.font.color.rgb = GRAY
+
+    # Helper function for slide with chart
+    def add_chart_slide(slide_tag, slide_title, slide_subtitle, chart_filename, insight_title, bullet_points):
+        slide = prs.slides.add_slide(blank_layout)
+        add_header(slide, slide_tag, slide_title, slide_subtitle)
+
+        # Image Container
+        img_path = os.path.join(fig_dir, chart_filename)
+        if os.path.exists(img_path):
+            slide.shapes.add_picture(img_path, Inches(0.8), Inches(1.95), width=Inches(6.8))
+
+        # Insights Box
+        in_card = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.8), Inches(1.95), Inches(4.7), Inches(4.9))
+        in_card.fill.solid()
+        in_card.fill.fore_color.rgb = CARD_BG
+        in_card.line.color.rgb = RGBColor(226, 232, 240)
+        itf = in_card.text_frame
+        itf.word_wrap = True
+
+        p = itf.paragraphs[0]
+        p.text = insight_title
+        p.font.size = Pt(17)
+        p.font.bold = True
+        p.font.color.rgb = NAVY
+
+        for b in bullet_points:
+            bp = itf.add_paragraph()
+            bp.text = "• " + b
+            bp.font.size = Pt(11.5)
+            bp.font.color.rgb = DARK_BLUE
+            bp.space_before = Pt(10)
 
     # ================= SLIDE 1: Title Slide =================
     slide1 = prs.slides.add_slide(blank_layout)
@@ -79,7 +111,6 @@ def create_deck():
     bg1.fill.fore_color.rgb = NAVY
     bg1.line.fill.background()
 
-    # Title Box
     t_box = slide1.shapes.add_textbox(Inches(1.0), Inches(1.6), Inches(11.3), Inches(3.5))
     tf1 = t_box.text_frame
     tf1.word_wrap = True
@@ -103,7 +134,6 @@ def create_deck():
     p.font.color.rgb = RGBColor(203, 213, 225)
     p.space_before = Pt(15)
 
-    # Metadata card
     meta_box = slide1.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(1.0), Inches(5.6), Inches(11.3), Inches(1.1))
     meta_box.fill.solid()
     meta_box.fill.fore_color.rgb = DARK_BLUE
@@ -130,7 +160,7 @@ def create_deck():
     for i, (label, val, sub, col) in enumerate(kpis):
         left = Inches(0.8 + i * 2.95)
         top = Inches(2.0)
-        card = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, top, Inches(2.8), Inches(1.8))
+        card = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, top, Inches(2.8), Inches(1.7))
         card.fill.solid()
         card.fill.fore_color.rgb = CARD_BG
         card.line.color.rgb = col
@@ -140,26 +170,25 @@ def create_deck():
         ctf.word_wrap = True
         p = ctf.paragraphs[0]
         p.text = label.upper()
-        p.font.size = Pt(11)
+        p.font.size = Pt(10)
         p.font.bold = True
         p.font.color.rgb = GRAY
         p.alignment = PP_ALIGN.CENTER
 
         p = ctf.add_paragraph()
         p.text = val
-        p.font.size = Pt(26)
+        p.font.size = Pt(25)
         p.font.bold = True
         p.font.color.rgb = NAVY
         p.alignment = PP_ALIGN.CENTER
 
         p = ctf.add_paragraph()
         p.text = sub
-        p.font.size = Pt(10)
+        p.font.size = Pt(9.5)
         p.font.color.rgb = GRAY
         p.alignment = PP_ALIGN.CENTER
 
-    # Bottom 2 Cards
-    c1 = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(4.2), Inches(5.75), Inches(2.5))
+    c1 = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(4.0), Inches(5.75), Inches(2.7))
     c1.fill.solid()
     c1.fill.fore_color.rgb = CARD_BG
     c1.line.color.rgb = RGBColor(226, 232, 240)
@@ -167,7 +196,7 @@ def create_deck():
     c1_tf.word_wrap = True
     p = c1_tf.paragraphs[0]
     p.text = "Commercial Strengths & Volume Engines"
-    p.font.size = Pt(16)
+    p.font.size = Pt(15)
     p.font.bold = True
     p.font.color.rgb = NAVY
 
@@ -179,11 +208,11 @@ def create_deck():
     for b in bullets1:
         bp = c1_tf.add_paragraph()
         bp.text = "• " + b
-        bp.font.size = Pt(12)
+        bp.font.size = Pt(11.5)
         bp.font.color.rgb = DARK_BLUE
         bp.space_before = Pt(8)
 
-    c2 = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.8), Inches(4.2), Inches(5.75), Inches(2.5))
+    c2 = slide2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.8), Inches(4.0), Inches(5.75), Inches(2.7))
     c2.fill.solid()
     c2.fill.fore_color.rgb = CARD_BG
     c2.line.color.rgb = RED
@@ -192,7 +221,7 @@ def create_deck():
     c2_tf.word_wrap = True
     p = c2_tf.paragraphs[0]
     p.text = "Strategic Bottlenecks Requiring Action"
-    p.font.size = Pt(16)
+    p.font.size = Pt(15)
     p.font.bold = True
     p.font.color.rgb = RED
 
@@ -204,16 +233,83 @@ def create_deck():
     for b in bullets2:
         bp = c2_tf.add_paragraph()
         bp.text = "• " + b
-        bp.font.size = Pt(12)
+        bp.font.size = Pt(11.5)
         bp.font.color.rgb = DARK_BLUE
         bp.space_before = Pt(8)
 
-    # ================= SLIDE 3: Business Origin Context =================
+    # ================= SLIDE 3: The 7 Hypotheses Framework =================
     slide3 = prs.slides.add_slide(blank_layout)
-    add_header(slide3, "Strategic Foundation", "Historical Business Model: Legacy Men's Grooming Roots", "Why 100% of subscribers and promotional discounts belong exclusively to male accounts.")
+    add_header(slide3, "Analytical Framework", "How Data Solved the 7 Core Business Hypotheses", "Translating leadership's overarching mandate into empirical testable questions.")
 
-    # Left Narrative Card
-    left_c = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(2.0), Inches(5.6), Inches(4.8))
+    h_left = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(2.0), Inches(5.75), Inches(4.8))
+    h_left.fill.solid()
+    h_left.fill.fore_color.rgb = CARD_BG
+    h_left.line.color.rgb = RGBColor(226, 232, 240)
+    hltf = h_left.text_frame
+    hltf.word_wrap = True
+
+    h1_to_3 = [
+        ("H1: Commercial Performance", "Where is revenue concentrated?", "PROVED: Apparel drives 44.7%, Senior cohort (51-70) generates $88.5K.", TEAL),
+        ("H2: The Discount Stimulus Fallacy", "Do discounts lift spend?", "DISPROVED: Discounted AOV is $0.85 lower; zero basket expansion.", RED),
+        ("H3: Loyalty Program Equity", "Are subscriptions reaching all shoppers?", "DISPROVED: 0% of females enrolled vs 39.7% of males.", AMBER),
+    ]
+
+    for idx, (title, q, ans, col) in enumerate(h1_to_3):
+        p = hltf.paragraphs[0] if idx == 0 else hltf.add_paragraph()
+        p.text = f"{idx+1}. {title}"
+        p.font.size = Pt(13)
+        p.font.bold = True
+        p.font.color.rgb = col
+        p.space_before = Pt(10) if idx > 0 else Pt(0)
+
+        p_q = hltf.add_paragraph()
+        p_q.text = f"Question: {q}"
+        p_q.font.size = Pt(10.5)
+        p_q.font.italic = True
+        p_q.font.color.rgb = GRAY
+
+        p_a = hltf.add_paragraph()
+        p_a.text = ans
+        p_a.font.size = Pt(11)
+        p_a.font.color.rgb = DARK_BLUE
+
+    h_right = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.8), Inches(2.0), Inches(5.75), Inches(4.8))
+    h_right.fill.solid()
+    h_right.fill.fore_color.rgb = CARD_BG
+    h_right.line.color.rgb = RGBColor(226, 232, 240)
+    hrtf = h_right.text_frame
+    hrtf.word_wrap = True
+
+    h4_to_7 = [
+        ("H4: Seasonality Allocation", "When should inventory peak?", "PROVED: Spring surge ($27.6K) and Winter ($27.2K) demand early procurement.", CYAN),
+        ("H5: Retention ROI (CLV)", "Is repeat retention worth the cost?", "PROVED: Platinum customers yield 6x more lifetime value ($3,027 vs $526).", GREEN),
+        ("H6 & H7: Omnichannel & Behavioral Segmentation", "How do channels and clusters behave?", "PROVED: Click-and-Collect is 16.7% of sales; K-Means establishes 4 actionable behavioral segments.", TEAL),
+    ]
+
+    for idx, (title, q, ans, col) in enumerate(h4_to_7):
+        p = hrtf.paragraphs[0] if idx == 0 else hrtf.add_paragraph()
+        p.text = f"{idx+4}. {title}"
+        p.font.size = Pt(13)
+        p.font.bold = True
+        p.font.color.rgb = col
+        p.space_before = Pt(10) if idx > 0 else Pt(0)
+
+        p_q = hrtf.add_paragraph()
+        p_q.text = f"Question: {q}"
+        p_q.font.size = Pt(10.5)
+        p_q.font.italic = True
+        p_q.font.color.rgb = GRAY
+
+        p_a = hrtf.add_paragraph()
+        p_a.text = ans
+        p_a.font.size = Pt(11)
+        p_a.font.color.rgb = DARK_BLUE
+
+    # ================= SLIDE 4: Business Origin Context =================
+    slide4 = prs.slides.add_slide(blank_layout)
+    add_header(slide4, "Strategic Foundation", "Historical Business Model: Legacy Men's Grooming Roots", "Why 100% of subscribers and promotional discounts belong exclusively to male accounts.")
+
+    left_c = slide4.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(2.0), Inches(5.6), Inches(4.8))
     left_c.fill.solid()
     left_c.fill.fore_color.rgb = CARD_BG
     left_c.line.color.rgb = TEAL
@@ -222,7 +318,7 @@ def create_deck():
     ltf.word_wrap = True
     p = ltf.paragraphs[0]
     p.text = "The Business Evolution Story"
-    p.font.size = Pt(18)
+    p.font.size = Pt(17)
     p.font.bold = True
     p.font.color.rgb = NAVY
 
@@ -235,11 +331,10 @@ def create_deck():
     for n in narrative:
         np = ltf.add_paragraph()
         np.text = n
-        np.font.size = Pt(12)
+        np.font.size = Pt(11)
         np.font.color.rgb = DARK_BLUE
-        np.space_before = Pt(10)
+        np.space_before = Pt(8)
 
-    # Right 3 Pillars
     pillars = [
         ("1. 100% Male Subscription Penetration", "All 1,053 subscribers are male. Shaving & grooming routines represent the classic high-frequency, male-oriented direct-to-consumer subscription model.", TEAL),
         ("2. Sequential Customer ID Onboarding", "Customers #1 to #2,652 are male legacy club members. Female shoppers (#2,653 to #3,900) joined later during general retail expansion.", CYAN),
@@ -248,7 +343,7 @@ def create_deck():
 
     for j, (p_title, p_desc, p_col) in enumerate(pillars):
         top_pos = Inches(2.0 + j * 1.65)
-        p_card = slide3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.7), top_pos, Inches(5.8), Inches(1.45))
+        p_card = slide4.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(6.7), top_pos, Inches(5.8), Inches(1.45))
         p_card.fill.solid()
         p_card.fill.fore_color.rgb = CARD_BG
         p_card.line.color.rgb = p_col
@@ -258,48 +353,17 @@ def create_deck():
         ptf.word_wrap = True
         p = ptf.paragraphs[0]
         p.text = p_title
-        p.font.size = Pt(14)
+        p.font.size = Pt(13.5)
         p.font.bold = True
         p.font.color.rgb = p_col
 
         p2 = ptf.add_paragraph()
         p2.text = p_desc
-        p2.font.size = Pt(11)
+        p2.font.size = Pt(10.5)
         p2.font.color.rgb = DARK_BLUE
-        p2.space_before = Pt(4)
+        p2.space_before = Pt(3)
 
-    # Helper function for slide with chart
-    def add_chart_slide(slide_tag, slide_title, slide_subtitle, chart_filename, insight_title, bullet_points):
-        slide = prs.slides.add_slide(blank_layout)
-        add_header(slide, slide_tag, slide_title, slide_subtitle)
-
-        # Image Container
-        img_path = os.path.join(fig_dir, chart_filename)
-        if os.path.exists(img_path):
-            slide.shapes.add_picture(img_path, Inches(0.8), Inches(2.0), width=Inches(6.8))
-
-        # Insights Box
-        in_card = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(7.8), Inches(2.0), Inches(4.7), Inches(4.8))
-        in_card.fill.solid()
-        in_card.fill.fore_color.rgb = CARD_BG
-        in_card.line.color.rgb = RGBColor(226, 232, 240)
-        itf = in_card.text_frame
-        itf.word_wrap = True
-
-        p = itf.paragraphs[0]
-        p.text = insight_title
-        p.font.size = Pt(18)
-        p.font.bold = True
-        p.font.color.rgb = NAVY
-
-        for b in bullet_points:
-            bp = itf.add_paragraph()
-            bp.text = "• " + b
-            bp.font.size = Pt(12)
-            bp.font.color.rgb = DARK_BLUE
-            bp.space_before = Pt(12)
-
-    # ================= SLIDE 4: Gender Gap =================
+    # ================= SLIDE 5: The Gender Gap =================
     add_chart_slide(
         "Critical Discovery",
         "The Female Engagement Paradox: Zero Subscriptions",
@@ -314,7 +378,7 @@ def create_deck():
         ]
     )
 
-    # ================= SLIDE 5: Marketing & Discounts =================
+    # ================= SLIDE 6: The Discount Trap =================
     add_chart_slide(
         "Pricing & ROI Diagnosis",
         "Marketing Drivers & The Promotional Margin Trap",
@@ -329,7 +393,7 @@ def create_deck():
         ]
     )
 
-    # ================= SLIDE 6: Merchandising & Seasonality =================
+    # ================= SLIDE 7: Seasonal Heatmap =================
     add_chart_slide(
         "Merchandising Agility",
         "Seasonality Patterns & Category Revenue Matrix",
@@ -344,7 +408,7 @@ def create_deck():
         ]
     )
 
-    # ================= SLIDE 7: Customer Segmentation =================
+    # ================= SLIDE 8: Behavioral Customer Segmentation =================
     add_chart_slide(
         "Behavioral Modeling",
         "Behavioral Customer Segmentation (K-Means, k=4)",
@@ -359,7 +423,7 @@ def create_deck():
         ]
     )
 
-    # ================= SLIDE 8: Loyalty & CLV =================
+    # ================= SLIDE 9: CLV & Loyalty =================
     add_chart_slide(
         "Retention Economics",
         "Customer Lifetime Value (CLV) & Loyalty Tiers",
@@ -374,19 +438,20 @@ def create_deck():
         ]
     )
 
-    # ================= SLIDE 9: What-If Forecast =================
-    slide9 = prs.slides.add_slide(blank_layout)
-    add_header(slide9, "Revenue Opportunity", "What-If Simulation: Female Subscription Opportunity", "Quantifying projected revenue lift across three adoption scenarios.")
+    # ================= SLIDE 10: Financial Forecast & 90-Day Execution Actions =================
+    slide10 = prs.slides.add_slide(blank_layout)
+    add_header(slide10, "Strategic Roadmap & ROI", "Financial Forecast: Closing the Female Gap", "Simulated 12-month financial outcomes across three adoption scenarios and immediate actions.")
 
+    # 3 Scenario Cards Top
     scenarios = [
-        ("CONSERVATIVE SCENARIO", "25% Adoption", "$52,000", "+22.3% Lift", "312 Female Subscribers\nModest rollout via email onboarding.", CYAN),
-        ("BENCHMARK SCENARIO", "40% Adoption (Male Parity)", "$85,000", "+36.5% Lift", "499 Female Subscribers\nDedicated female VIP lifestyle club.", GREEN),
-        ("AGGRESSIVE SCENARIO", "55% Penetration", "$115,000", "+49.3% Lift", "686 Female Subscribers\nMulti-channel influencer launch.", AMBER),
+        ("Conservative", "+$52,000", "25% Female Adoption", "312 new subscribers, 2 additional annual baskets per member.", CYAN),
+        ("Moderate Benchmark", "+$85,000", "40% Adoption (Matches Men)", "500 new subscribers, cross-category multi-item baskets.", GREEN),
+        ("Aggressive", "+$115,000", "55% Market Penetration", "Omni-Her VIP styling service, seasonal box membership.", NAVY),
     ]
 
-    for k, (s_name, s_rate, s_rev, s_lift, s_desc, s_col) in enumerate(scenarios):
+    for k, (s_name, s_rev, s_rate, s_desc, s_col) in enumerate(scenarios):
         s_left = Inches(0.8 + k * 3.95)
-        s_card = slide9.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, s_left, Inches(2.0), Inches(3.8), Inches(4.8))
+        s_card = slide10.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, s_left, Inches(1.95), Inches(3.8), Inches(2.7))
         s_card.fill.solid()
         s_card.fill.fore_color.rgb = CARD_BG
         s_card.line.color.rgb = s_col
@@ -396,94 +461,60 @@ def create_deck():
         stf.word_wrap = True
 
         p = stf.paragraphs[0]
-        p.text = s_name
+        p.text = s_name.upper()
         p.font.size = Pt(11)
         p.font.bold = True
         p.font.color.rgb = s_col
         p.alignment = PP_ALIGN.CENTER
 
         p = stf.add_paragraph()
-        p.text = s_rate
-        p.font.size = Pt(14)
-        p.font.bold = True
-        p.font.color.rgb = NAVY
-        p.alignment = PP_ALIGN.CENTER
-        p.space_before = Pt(6)
-
-        p = stf.add_paragraph()
         p.text = s_rev
-        p.font.size = Pt(32)
+        p.font.size = Pt(26)
         p.font.bold = True
         p.font.color.rgb = s_col
         p.alignment = PP_ALIGN.CENTER
-        p.space_before = Pt(12)
+        p.space_before = Pt(4)
 
         p = stf.add_paragraph()
-        p.text = "Additional Annual Revenue"
-        p.font.size = Pt(10)
-        p.font.color.rgb = GRAY
-        p.alignment = PP_ALIGN.CENTER
-
-        p = stf.add_paragraph()
-        p.text = s_lift
-        p.font.size = Pt(18)
+        p.text = s_rate
+        p.font.size = Pt(11)
         p.font.bold = True
         p.font.color.rgb = NAVY
         p.alignment = PP_ALIGN.CENTER
-        p.space_before = Pt(12)
+        p.space_before = Pt(4)
 
         p = stf.add_paragraph()
         p.text = s_desc
-        p.font.size = Pt(12)
-        p.font.color.rgb = DARK_BLUE
+        p.font.size = Pt(9.5)
+        p.font.color.rgb = GRAY
         p.alignment = PP_ALIGN.CENTER
-        p.space_before = Pt(16)
+        p.space_before = Pt(6)
 
-    # ================= SLIDE 10: Strategic Roadmap =================
-    slide10 = prs.slides.add_slide(blank_layout)
-    add_header(slide10, "Execution Plan", "90-Day Strategic Roadmap & Next Steps", "Structured quarterly milestones to capture female revenue and protect profit margins.")
+    # Bottom Execution Banner
+    exec_banner = slide10.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(4.85), Inches(11.7), Inches(2.0))
+    exec_banner.fill.solid()
+    exec_banner.fill.fore_color.rgb = NAVY
+    exec_banner.line.color.rgb = RGBColor(51, 65, 85)
+    ebtf = exec_banner.text_frame
+    ebtf.word_wrap = True
 
-    phases = [
-        ("DAYS 1 - 30: IMMEDIATE FIXES", [
-            "Halt blanket margin-eroding discounts across product catalog.",
-            "Introduce a $75 minimum order threshold for free shipping perks.",
-            "Audit email automation to eliminate legacy male-only campaign targeting."
-        ], CYAN),
-        ("DAYS 31 - 60: SUBSCRIPTION LAUNCH", [
-            "Design and pilot curated Female Lifestyle & Accessories Subscription.",
-            "Target initial 25% female cohort with personalized onboarding gifts.",
-            "Integrate BOPIS (In-Store Pickup) VIP express lane for subscribers."
-        ], GREEN),
-        ("DAYS 61 - 90: AI SCALING & CRM", [
-            "Deploy K-Means customer segmentation into marketing CRM.",
-            "Automate replenishment triggers based on past purchase frequency.",
-            "Launch Platinum concierge loyalty tier for 46+ order champions."
-        ], TEAL),
+    p = ebtf.paragraphs[0]
+    p.text = "IMMEDIATE 90-DAY STRATEGIC EXECUTION ACTIONS"
+    p.font.size = Pt(14)
+    p.font.bold = True
+    p.font.color.rgb = TEAL
+
+    actions = [
+        "Phase 1 (Days 1–30): Sunset blanket promo codes in favor of $75+ spend thresholds. Audit legacy male-only email lists.",
+        "Phase 2 (Days 31–60): Launch curated female lifestyle subscription pilot. Target initial 25% female cohort with onboarding gifts.",
+        "Phase 3 (Days 61–90): Operationalize K-Means behavioral segments into marketing CRM. Roll out VIP concierge loyalty tier."
     ]
-
-    for m, (ph_title, ph_items, ph_col) in enumerate(phases):
-        p_top = Inches(2.0 + m * 1.65)
-        p_box = slide10.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), p_top, Inches(11.7), Inches(1.45))
-        p_box.fill.solid()
-        p_box.fill.fore_color.rgb = CARD_BG
-        p_box.line.color.rgb = ph_col
-        p_box.line.width = Pt(2)
-
-        pbtf = p_box.text_frame
-        pbtf.word_wrap = True
-
-        p = pbtf.paragraphs[0]
-        p.text = ph_title
-        p.font.size = Pt(14)
-        p.font.bold = True
-        p.font.color.rgb = ph_col
-
-        for it in ph_items:
-            ip = pbtf.add_paragraph()
-            ip.text = "• " + it
-            ip.font.size = Pt(11)
-            ip.font.color.rgb = DARK_BLUE
-            ip.space_before = Pt(3)
+    for act in actions:
+        ap = ebtf.add_paragraph()
+        ap.text = "• " + act
+        ap.font.size = Pt(11.5)
+        ap.font.color.rgb = RGBColor(226, 232, 240)
+        ap.space_before = Pt(6)
 
     prs.save(out_path)
     print(f"Presentation saved successfully to: {out_path}")
