@@ -346,11 +346,11 @@ def create_deck():
 
     # ================= SLIDE 7: Customer Segmentation =================
     add_chart_slide(
-        "AI Behavioral Modeling",
-        "Customer Personas: K-Means Clustering (k=4)",
-        "Segmenting 3,900 customers into actionable personas using Age, Spend, and Order Depth.",
+        "Behavioral Modeling",
+        "Behavioral Customer Segmentation (K-Means, k=4)",
+        "Segmenting 3,900 customers into 4 actionable behavioral segments using Age, Spend, and Order Depth.",
         "02_customer_segments_scatter.png",
-        "Targeted Persona Strategies",
+        "Actionable Segment Strategies",
         [
             "Young Emerging (31.6%): Age 18–35, seeking modern styles, digital checkout, and mobile notifications.",
             "Value Occasionals (28.8%): Price-conscious buyers driven by free shipping perks and seasonal replenishment.",

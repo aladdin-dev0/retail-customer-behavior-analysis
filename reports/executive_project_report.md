@@ -29,7 +29,7 @@ The retail leadership team sought to diagnose evolving customer purchasing behav
 ```mermaid
 flowchart TD
     A["Raw Transaction Dataset (3,900 records)"] --> B["Python Pipeline (Cleaning & Feature Engineering)"]
-    B --> C["K-Means Behavioral Segmentation (4 Personas)"]
+    B --> C["K-Means Behavioral Segmentation (4 Segments)"]
     B --> D["Relational Star Schema (5 Normalized Tables)"]
     D --> E["SQLite Analytical Engine (12 Business Queries)"]
     D --> F["Power BI Dashboard (4 Interactive Pages)"]
@@ -135,11 +135,11 @@ As visualized in `figures/05_marketing_drivers_analysis.png` (*Basket Spend: Dis
 
 ---
 
-### Finding 5: Machine Learning Customer Personas (K-Means Clustering)
-Unsupervised clustering identified 4 actionable customer archetypes:
+### Finding 5: Machine Learning Behavioral Customer Segmentation (K-Means Clustering)
+Unsupervised clustering identified 4 actionable customer segments:
 
 ```mermaid
-pie title Customer Persona Distribution
+pie title Customer Segment Distribution
     "High-Basket Premium Shoppers" : 1232
     "Value-Seeking Occasionals" : 1125
     "High-Basket Core Shoppers" : 1004

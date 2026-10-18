@@ -108,7 +108,7 @@
 ---
 
 ## Slide 8: Machine Learning Customer Segments (K-Means)
-### 4 Data-Driven Personas to Drive Precision Marketing
+### 4 Data-Driven Behavioral Segments to Drive Precision Marketing
 
 1. **High-Basket Premium Shoppers (31.6%):**
    - High AOV, mature demographic, heavy apparel buyers. Target: Exclusive VIP previews, luxury fabric bundles.
