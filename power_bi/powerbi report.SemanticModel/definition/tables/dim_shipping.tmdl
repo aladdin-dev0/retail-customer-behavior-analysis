@@ -1,0 +1,39 @@
+table dim_shipping
+	lineageTag: f610ce9a-ee11-4f94-a60d-f130b25e695d
+
+	column shipping_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e68e4ff-b6cd-4f02-896d-9d5b4de6157b
+		summarizeBy: none
+		sourceColumn: shipping_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_type
+		dataType: string
+		lineageTag: 16584f0a-c6f2-4c59-a766-068876003544
+		summarizeBy: none
+		sourceColumn: shipping_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_channel
+		dataType: string
+		lineageTag: 4f4e8b5d-74b5-48e7-9e87-bb30903af6d6
+		summarizeBy: none
+		sourceColumn: sales_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_shipping = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_shipping.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"shipping_id", Int64.Type}, {"shipping_type", type text}, {"sales_channel", type text}})
+			in
+			    #"Changed Type"
+
+	annotation PBI_ResultType = Table

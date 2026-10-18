@@ -1,0 +1,170 @@
+table fact_transactions
+	lineageTag: 42ce7e67-b86f-44e4-bdbf-b312c347e3b3
+
+	column transaction_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 41a93ecd-dc7e-4f10-afc5-c0bc00a1a06f
+		summarizeBy: count
+		sourceColumn: transaction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cea9123-3d5b-46d8-b79b-a24084e35e2e
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 08b48bd1-01e3-4a3c-a9bc-6ff6a8c3b9f2
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b13dfa09-dd90-482b-95e0-1c45c5639b3c
+		summarizeBy: none
+		sourceColumn: shipping_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d4c43781-785c-452b-a367-daac0a8713cf
+		summarizeBy: none
+		sourceColumn: payment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column season
+		dataType: string
+		lineageTag: f3eeaffe-cf7c-4bac-beda-035a4c0f868c
+		summarizeBy: none
+		sourceColumn: season
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchase_amount_usd
+		dataType: double
+		formatString: \$#,##0.00
+		lineageTag: e59e4826-7d10-4bcb-9796-5a096d580c3d
+		summarizeBy: sum
+		sourceColumn: purchase_amount_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_rating
+		dataType: double
+		formatString: 0.00
+		lineageTag: 92c7f449-cb62-4386-9ad5-3ab6fa3eca14
+		summarizeBy: average
+		sourceColumn: review_rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_rating_imputed
+		dataType: int64
+		formatString: 0
+		lineageTag: 67dbb179-3c01-4569-947a-98b51c80d38b
+		summarizeBy: sum
+		sourceColumn: review_rating_imputed
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_applied
+		dataType: string
+		lineageTag: a301ae9b-c770-4b90-9e55-51b36b5b3618
+		summarizeBy: none
+		sourceColumn: discount_applied
+
+		annotation SummarizationSetBy = Automatic
+
+	column promo_code_used
+		dataType: string
+		lineageTag: a9929cd9-ec29-41ff-be57-f5385647c7b4
+		summarizeBy: none
+		sourceColumn: promo_code_used
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_purchases
+		dataType: int64
+		formatString: 0
+		lineageTag: a3a6bf50-ab92-446a-abea-4300442d570f
+		summarizeBy: sum
+		sourceColumn: previous_purchases
+
+		annotation SummarizationSetBy = Automatic
+
+	column frequency_of_purchases
+		dataType: string
+		lineageTag: d2b04c13-6272-4dd1-843a-1c9cecbecb36
+		summarizeBy: none
+		sourceColumn: frequency_of_purchases
+
+		annotation SummarizationSetBy = Automatic
+
+	column annual_purchase_frequency
+		dataType: double
+		formatString: 0.0
+		lineageTag: b4f13355-1dfa-477c-b7d5-9e5b3523d755
+		summarizeBy: average
+		sourceColumn: annual_purchase_frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_annual_spend
+		dataType: double
+		formatString: \$#,##0.00
+		lineageTag: 2179f5bb-d154-4380-9b8c-00f75c1ddc30
+		summarizeBy: sum
+		sourceColumn: estimated_annual_spend
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_clv
+		dataType: double
+		formatString: \$#,##0.00
+		lineageTag: 34753248-cf80-46b7-b834-cde00bad7663
+		summarizeBy: sum
+		sourceColumn: estimated_clv
+
+		annotation SummarizationSetBy = Automatic
+
+	column spending_tier
+		dataType: string
+		lineageTag: ba67e589-23d2-4a6b-bfff-69666ec5778b
+		summarizeBy: none
+		sourceColumn: spending_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column satisfaction_level
+		dataType: string
+		lineageTag: ab1835df-cdb5-4102-be8c-7a5dc45e90c4
+		summarizeBy: none
+		sourceColumn: satisfaction_level
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_transactions = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\fact_transactions.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"transaction_id", Int64.Type}, {"customer_id", Int64.Type}, {"product_id", Int64.Type}, {"shipping_id", Int64.Type}, {"payment_id", Int64.Type}, {"season", type text}, {"purchase_amount_usd", type number}, {"review_rating", type number}, {"review_rating_imputed", Int64.Type}, {"discount_applied", type text}, {"promo_code_used", type text}, {"previous_purchases", Int64.Type}, {"frequency_of_purchases", type text}, {"annual_purchase_frequency", type number}, {"estimated_annual_spend", type number}, {"estimated_clv", type number}, {"spending_tier", type text}, {"satisfaction_level", type text}})
+			in
+			    #"Changed Type"
+
+	annotation PBI_ResultType = Table

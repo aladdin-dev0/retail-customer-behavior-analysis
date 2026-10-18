@@ -1,0 +1,97 @@
+table _Measures
+	lineageTag: 73e1910e-bd39-41c5-aee9-0402af26b2a4
+
+	measure 'Total Revenue' = SUM(fact_transactions[purchase_amount_usd])
+		formatString: \$#,##0
+		lineageTag: bdedc753-c808-40d9-b622-6b8550a8294d
+
+	measure 'Total Transactions' = COUNTROWS(fact_transactions)
+		formatString: #,##0
+		lineageTag: 34a15897-36f4-4251-aa36-0fc98f896d32
+
+	measure 'Total Customers' = DISTINCTCOUNT(fact_transactions[customer_id])
+		formatString: #,##0
+		lineageTag: a19e0ca3-996f-477a-a2dd-7cdbf7f61211
+
+	measure 'Average Order Value' = DIVIDE([Total Revenue], [Total Transactions], 0)
+		formatString: \$#,##0.00
+		lineageTag: 44b7e1b2-e3d3-49d5-964d-c2b59c45298b
+
+	measure 'Average Customer Rating' = AVERAGE(fact_transactions[review_rating])
+		formatString: 0.00
+		lineageTag: 1d44be3a-61f7-45d4-b27c-7ed44cf40218
+
+	measure 'Subscription Rate %' = DIVIDE(CALCULATE(DISTINCTCOUNT(fact_transactions[customer_id]), dim_customers[subscription_status] = "Yes"), [Total Customers], 0)
+		formatString: 0.0%
+		lineageTag: b851b81c-77bb-42b4-bb5f-4e00fc030a28
+
+	measure 'Discount Penetration %' = DIVIDE(CALCULATE([Total Transactions], fact_transactions[discount_applied] = "Yes"), [Total Transactions], 0)
+		formatString: 0.0%
+		lineageTag: 57dddf7f-8d1d-4b59-95d6-5ecab13f9697
+
+	measure 'Online Shipping Share %' = DIVIDE(CALCULATE([Total Revenue], dim_shipping[sales_channel] = "Online Shipping"), [Total Revenue], 0)
+		formatString: 0.0%
+		lineageTag: 0665ed62-60cd-4db8-a281-978c9c33318f
+
+	measure 'In-Store Pickup Share %' = DIVIDE(CALCULATE([Total Revenue], dim_shipping[sales_channel] = "In-Store Pickup"), [Total Revenue], 0)
+		formatString: 0.0%
+		lineageTag: 4c92f9c4-6c8f-46fe-a094-ca6697723724
+
+	measure 'Female Revenue' = CALCULATE([Total Revenue], dim_customers[gender] = "Female")
+		formatString: \$#,##0
+		lineageTag: 1e13e9e4-2d34-46e6-b1d0-e8d3dff02cf9
+
+	measure 'Male Revenue' = CALCULATE([Total Revenue], dim_customers[gender] = "Male")
+		formatString: \$#,##0
+		lineageTag: 16b7f983-7d5e-4b95-89ef-ea3ea4d0051c
+
+	measure 'Female Customers' = CALCULATE([Total Customers], dim_customers[gender] = "Female")
+		formatString: #,##0
+		lineageTag: ece6e535-bc8b-4903-ad87-20d9c071c6c7
+
+	measure 'Male Customers' = CALCULATE([Total Customers], dim_customers[gender] = "Male")
+		formatString: #,##0
+		lineageTag: 56284357-4bc8-4b0b-a841-eb51ebd6595f
+
+	measure 'Female AOV' = CALCULATE([Average Order Value], dim_customers[gender] = "Female")
+		formatString: \$#,##0.00
+		lineageTag: 98e344c0-7f70-4709-bc3b-2c77e8cf9c14
+
+	measure 'Male AOV' = CALCULATE([Average Order Value], dim_customers[gender] = "Male")
+		formatString: \$#,##0.00
+		lineageTag: 1a7c3317-0929-4ef5-839b-1ac43a4e335d
+
+	measure 'Simulated Female Subscribers' = ROUND([Female Customers] * [Female Adoption Rate Value], 0)
+		formatString: #,##0
+		lineageTag: 02dd5af9-6654-4256-82bf-24571541808e
+
+	measure 'Simulated Incremental Revenue' = [Simulated Female Subscribers] * [Female AOV] * 2.8
+		formatString: \$#,##0
+		lineageTag: 39f94b5d-03fb-4012-879e-cffe8bec2a79
+
+	measure 'Total Projected Revenue' = [Total Revenue] + [Simulated Incremental Revenue]
+		formatString: \$#,##0
+		lineageTag: 6cd6cf5f-f30e-46d1-846d-ecbfa3b51244
+
+	measure 'Projected Revenue Lift %' = DIVIDE([Simulated Incremental Revenue], [Total Revenue], 0)
+		formatString: +0.0%
+		lineageTag: ae7986ba-7b0b-489e-821f-5a8f1a4c87b0
+
+	column Placeholder
+		dataType: string
+		isHidden
+		lineageTag: 5241fdef-1a0e-4b6e-8c6f-387628133f97
+		summarizeBy: none
+		sourceColumn: Placeholder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+			let
+			    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Placeholder = _t])
+			in
+			    Source
+
+	annotation PBI_ResultType = Table

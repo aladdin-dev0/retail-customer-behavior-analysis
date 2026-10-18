@@ -1,0 +1,55 @@
+table dim_products
+	lineageTag: f79392ee-4437-434e-b41d-34963557ef36
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: de8f1434-d683-41a0-9495-b2d68104a38d
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_purchased
+		dataType: string
+		lineageTag: f533e3bf-861b-448d-8e9f-839945dfded6
+		summarizeBy: none
+		sourceColumn: item_purchased
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 2be2456c-6f7c-4a7f-a592-1641be65d9e1
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column size
+		dataType: string
+		lineageTag: a40b5130-e878-4806-9d8b-051de38bcc0b
+		summarizeBy: none
+		sourceColumn: size
+
+		annotation SummarizationSetBy = Automatic
+
+	column color
+		dataType: string
+		lineageTag: 7e1a1e12-d296-4a8e-9e02-7abc8a8dd11a
+		summarizeBy: none
+		sourceColumn: color
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_products = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_products.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"product_id", Int64.Type}, {"item_purchased", type text}, {"category", type text}, {"size", type text}, {"color", type text}})
+			in
+			    #"Changed Type"
+
+	annotation PBI_ResultType = Table

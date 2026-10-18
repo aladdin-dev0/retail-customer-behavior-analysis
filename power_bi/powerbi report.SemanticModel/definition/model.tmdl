@@ -11,5 +11,12 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref cultureInfo en-US
+ref table dim_customers
+ref table dim_products
+ref table dim_shipping
+ref table dim_payment
+ref table fact_transactions
+ref table _Measures
+ref table 'Female Subscription Adoption Rate'
 
+ref cultureInfo en-US

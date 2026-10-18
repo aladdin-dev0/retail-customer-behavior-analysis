@@ -1,0 +1,89 @@
+table dim_customers
+	lineageTag: f97874aa-bf7c-4916-a4ba-4ae0d950f968
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a1ef2fb7-c22f-426c-a14d-0ca00d2b01f9
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: a4af80b2-6868-4a74-b3e2-31f86002dbeb
+		summarizeBy: none
+		sourceColumn: age
+
+		annotation SummarizationSetBy = User
+
+	column age_group
+		dataType: string
+		lineageTag: 88352136-23b1-4450-94f5-18331c252a27
+		summarizeBy: none
+		sourceColumn: age_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: b5cf266f-3da2-4826-ad02-f0d64d01b6e7
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column location
+		dataType: string
+		lineageTag: 4e5b2876-9deb-4767-9f3e-2e185d38f7ad
+		summarizeBy: none
+		sourceColumn: location
+
+		annotation SummarizationSetBy = Automatic
+
+	column subscription_status
+		dataType: string
+		lineageTag: a0af392d-6092-4eea-9252-bda67028e0c7
+		summarizeBy: none
+		sourceColumn: subscription_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column loyalty_tier
+		dataType: string
+		lineageTag: 83e108fd-ee1e-4974-b1d2-aefe8bd9d62b
+		summarizeBy: none
+		sourceColumn: loyalty_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cda0b44b-f5a6-4ff9-8e1e-301e37e05bee
+		summarizeBy: count
+		sourceColumn: cluster_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_segment
+		dataType: string
+		lineageTag: 2d054d6a-7323-4b27-bd16-ba784efa6a66
+		summarizeBy: none
+		sourceColumn: customer_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customers = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_customers.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", Int64.Type}, {"age", Int64.Type}, {"age_group", type text}, {"gender", type text}, {"location", type text}, {"subscription_status", type text}, {"loyalty_tier", type text}, {"cluster_id", Int64.Type}, {"customer_segment", type text}})
+			in
+			    #"Changed Type"
+
+	annotation PBI_ResultType = Table

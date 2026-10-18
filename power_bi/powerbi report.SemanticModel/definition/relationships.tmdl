@@ -1,0 +1,15 @@
+relationship rel_fact_to_dim_customers
+	fromColumn: fact_transactions.customer_id
+	toColumn: dim_customers.customer_id
+
+relationship rel_fact_to_dim_products
+	fromColumn: fact_transactions.product_id
+	toColumn: dim_products.product_id
+
+relationship rel_fact_to_dim_shipping
+	fromColumn: fact_transactions.shipping_id
+	toColumn: dim_shipping.shipping_id
+
+relationship rel_fact_to_dim_payment
+	fromColumn: fact_transactions.payment_id
+	toColumn: dim_payment.payment_id

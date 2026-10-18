@@ -1,0 +1,31 @@
+table dim_payment
+	lineageTag: 5c32e94d-e6a8-4523-b68e-2b94cbf5b2bc
+
+	column payment_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d5fc7ad2-120a-4843-9506-af334cec477e
+		summarizeBy: none
+		sourceColumn: payment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: 5ae556a1-9764-422b-ab34-b3e0a7d1d6d8
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_payment = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_payment.csv"),[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"payment_id", Int64.Type}, {"payment_method", type text}})
+			in
+			    #"Changed Type"
+
+	annotation PBI_ResultType = Table
