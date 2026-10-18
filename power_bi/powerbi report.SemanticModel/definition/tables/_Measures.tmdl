@@ -77,6 +77,17 @@ table _Measures
 		formatString: +0.0%
 		lineageTag: ae7986ba-7b0b-489e-821f-5a8f1a4c87b0
 
+	measure 'Executive Dashboard Header' = "RETAIL REVENUE & GROWTH COCKPIT: UNLOCKING THE FEMALE MARKET"
+		lineageTag: e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c
+
+	measure 'Dynamic Executive Insight' = 
+		VAR _Rate = [Female Adoption Rate Value]
+		VAR _Inc = [Simulated Incremental Revenue]
+		VAR _Lift = [Projected Revenue Lift %]
+		RETURN
+			"Targeting a " & FORMAT(_Rate, "0%") & " female subscription adoption unlocks " & FORMAT(_Inc, "$#,##0") & " in incremental annual revenue (a " & FORMAT(_Lift, "+0.0%") & " total revenue lift) with ZERO extra customer acquisition cost (CAC)."
+		lineageTag: f2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d
+
 	column Placeholder
 		dataType: string
 		isHidden
