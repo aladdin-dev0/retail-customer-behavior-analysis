@@ -23,11 +23,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Executive Dashboard Header"
+                  "Property": "Total Revenue"
                 }
               },
-              "queryRef": "_Measures.Executive Dashboard Header",
-              "nativeQueryRef": "Executive Dashboard Header"
+              "queryRef": "_Measures.Total Revenue",
+              "nativeQueryRef": "Total Revenue"
             }
           ]
         }
@@ -55,7 +55,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F8FAFC'"
+                      "Value": "'#0F172A'"
                     }
                   }
                 }
@@ -64,7 +64,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "1D"
                 }
               }
             }
@@ -175,7 +175,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'STRATEGIC EXECUTIVE COCKPIT | BOARD OF DIRECTORS BRIEFING'"
+                  "Value": "'STRATEGIC EXECUTIVE COCKPIT: UNLOCKING THE FEMALE MARKET OPPORTUNITY'"
                 }
               }
             },
@@ -198,7 +198,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#38BDF8'"
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -220,7 +220,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Core Objective: Baseline Revenue Structure & Quantifying Female Subscription Growth Opportunity'"
+                  "Value": "'Core Objective: Baseline Revenue Structure ($233K) & Quantifying Financial Impact of Female Subscriptions'"
                 }
               }
             },
@@ -236,7 +236,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#94A3B8'"
+                      "Value": "'#38BDF8'"
                     }
                   }
                 }

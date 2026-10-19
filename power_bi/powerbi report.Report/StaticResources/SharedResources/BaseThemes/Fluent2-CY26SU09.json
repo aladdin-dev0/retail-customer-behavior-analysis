@@ -225,38 +225,42 @@
           {
             "backgroundColor": {
               "solid": {
-                "color": "background"
+                "color": "#1E293B"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#F8FAFC"
               }
             },
             "transparency": 0,
             "border": true,
             "borderColor": {
               "solid": {
-                "color": "disabledText"
+                "color": "#334155"
               }
             }
           }
         ],
         "filterCard": [
           {
-            "$id": "Applied",
-            "transparency": 0,
-            "foregroundColor": {
+            "backgroundColor": {
               "solid": {
-                "color": "foreground"
+                "color": "#0F172A"
               }
             },
-            "border": true
-          },
-          {
-            "$id": "Available",
-            "transparency": 0,
             "foregroundColor": {
               "solid": {
-                "color": "foreground"
+                "color": "#F8FAFC"
               }
             },
-            "border": true
+            "transparency": 0,
+            "border": true,
+            "borderColor": {
+              "solid": {
+                "color": "#334155"
+              }
+            }
           }
         ]
       }
@@ -1998,7 +2002,7 @@
           {
             "color": {
               "solid": {
-                "color": "foreground"
+                "color": "#38BDF8"
               }
             }
           }
@@ -2035,6 +2039,37 @@
             "top": 0,
             "right": 0,
             "bottom": 0
+          }
+        ],
+        "header": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "textSize": 10.5
+          }
+        ],
+        "input": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "backgroundColor": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "borderColor": {
+              "solid": {
+                "color": "#38BDF8"
+              }
+            },
+            "textSize": 10.5
           }
         ]
       }
