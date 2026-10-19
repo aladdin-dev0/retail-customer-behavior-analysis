@@ -3,10 +3,10 @@
   "name": "Slicer_Female_Adoption_Rate",
   "position": {
     "x": 40.0,
-    "y": 620.0,
+    "y": 520.0,
     "z": 7000.0,
     "width": 440.0,
-    "height": 195.0,
+    "height": 140.0,
     "tabOrder": 7000.0
   },
   "visual": {
@@ -58,7 +58,7 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10.5D"
+                  "Value": "9.5D"
                 }
               }
             }
@@ -139,7 +139,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "10D"
                 }
               }
             },
@@ -193,7 +193,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "10D"
                 }
               }
             },
@@ -238,7 +238,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8.5D"
                 }
               }
             },

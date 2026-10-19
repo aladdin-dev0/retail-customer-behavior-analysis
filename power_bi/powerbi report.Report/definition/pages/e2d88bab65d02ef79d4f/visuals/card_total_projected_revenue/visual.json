@@ -3,10 +3,10 @@
   "name": "Card_Total_Projected_Revenue",
   "position": {
     "x": 985.0,
-    "y": 620.0,
+    "y": 520.0,
     "z": 9000.0,
     "width": 425.0,
-    "height": 425.0,
+    "height": 300.0,
     "tabOrder": 9000.0
   },
   "visual": {
@@ -128,7 +128,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "10D"
                 }
               }
             },
@@ -182,7 +182,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "10D"
                 }
               }
             },
@@ -227,7 +227,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8.5D"
                 }
               }
             },

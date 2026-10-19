@@ -3,10 +3,10 @@
   "name": "Card_Simulated_Subscribers",
   "position": {
     "x": 40.0,
-    "y": 830.0,
+    "y": 675.0,
     "z": 7500.0,
     "width": 440.0,
-    "height": 215.0,
+    "height": 145.0,
     "tabOrder": 7500.0
   },
   "visual": {
@@ -64,7 +64,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "36D"
+                  "Value": "30D"
                 }
               }
             }
@@ -128,7 +128,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "10D"
                 }
               }
             },
@@ -182,7 +182,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "10D"
                 }
               }
             },
@@ -220,14 +220,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Active female shoppers converted to recurring membership'"
+                  "Value": "'Active shoppers converting to membership'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8.5D"
                 }
               }
             },

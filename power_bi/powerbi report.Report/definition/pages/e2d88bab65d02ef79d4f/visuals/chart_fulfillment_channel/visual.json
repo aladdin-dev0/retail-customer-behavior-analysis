@@ -3,10 +3,10 @@
   "name": "Chart_Fulfillment_Channel",
   "position": {
     "x": 1145.0,
-    "y": 245.0,
+    "y": 195.0,
     "z": 6000.0,
     "width": 735.0,
-    "height": 360.0,
+    "height": 310.0,
     "tabOrder": 6000.0
   },
   "visual": {
@@ -100,7 +100,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10.5D"
+                  "Value": "10D"
                 }
               }
             }
@@ -164,7 +164,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "10D"
                 }
               }
             },
@@ -218,7 +218,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "10D"
                 }
               }
             },
@@ -263,7 +263,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8.5D"
                 }
               }
             },

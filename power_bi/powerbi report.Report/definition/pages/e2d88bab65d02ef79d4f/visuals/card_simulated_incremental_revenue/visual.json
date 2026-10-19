@@ -3,10 +3,10 @@
   "name": "Card_Simulated_Incremental_Revenue",
   "position": {
     "x": 505.0,
-    "y": 620.0,
+    "y": 520.0,
     "z": 8000.0,
     "width": 455.0,
-    "height": 425.0,
+    "height": 300.0,
     "tabOrder": 8000.0
   },
   "visual": {
@@ -128,7 +128,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "14D"
+                  "Value": "12D"
                 }
               }
             },
@@ -182,7 +182,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "10D"
                 }
               }
             },
@@ -220,14 +220,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Unlocks up to +$84.2K at 50% target adoption'"
+                  "Value": "'Unlocks up to +$84.2K at 50% target adoption (CAC = $0)'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "8.5D"
                 }
               }
             },
