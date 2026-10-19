@@ -541,7 +541,7 @@ def build_powerbi_model():
     param_tpl = """table 'Female Subscription Adoption Rate'
 \tlineageTag: @U@
 
-\tmeasure 'Female Adoption Rate Value' = SELECTEDVALUE('Female Subscription Adoption Rate'[Female Subscription Adoption Rate], 0.40)
+\tmeasure 'Female Adoption Rate Value' = SELECTEDVALUE('Female Subscription Adoption Rate'[Female Subscription Adoption Rate], 0.0)
 \t\tformatString: 0.0%
 \t\tlineageTag: @U@
 

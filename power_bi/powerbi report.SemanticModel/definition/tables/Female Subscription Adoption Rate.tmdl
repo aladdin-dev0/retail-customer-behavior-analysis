@@ -1,7 +1,7 @@
 table 'Female Subscription Adoption Rate'
 	lineageTag: f1ea1fc2-2b47-4978-91f7-189b42beba7b
 
-	measure 'Female Adoption Rate Value' = SELECTEDVALUE('Female Subscription Adoption Rate'[Female Subscription Adoption Rate], 0.40)
+	measure 'Female Adoption Rate Value' = SELECTEDVALUE('Female Subscription Adoption Rate'[Female Subscription Adoption Rate], 0.0)
 		formatString: 0.0%
 		lineageTag: b0e67a09-d7be-42da-98ac-2410febb2f99
 
