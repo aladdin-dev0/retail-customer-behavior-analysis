@@ -2088,6 +2088,22 @@
             },
             "textSize": 10.5
           }
+        ],
+        "data": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "textSize": 11,
+            "fontFamily": "Segoe UI Semibold"
+          }
         ]
       }
     },
