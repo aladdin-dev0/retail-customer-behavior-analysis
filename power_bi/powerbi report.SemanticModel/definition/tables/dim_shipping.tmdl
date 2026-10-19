@@ -29,11 +29,12 @@ table dim_shipping
 	partition dim_shipping = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_shipping.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"shipping_id", Int64.Type}, {"shipping_type", type text}, {"sales_channel", type text}})
-			in
-			    #"Changed Type"
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_shipping.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"shipping_id", Int64.Type}, {"shipping_type", type text}, {"sales_channel", type text}})
+				in
+				    #"Changed Type"
 
 	annotation PBI_ResultType = Table
+

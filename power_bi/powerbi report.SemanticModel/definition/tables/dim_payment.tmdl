@@ -21,11 +21,12 @@ table dim_payment
 	partition dim_payment = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_payment.csv"),[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"payment_id", Int64.Type}, {"payment_method", type text}})
-			in
-			    #"Changed Type"
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_payment.csv"),[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"payment_id", Int64.Type}, {"payment_method", type text}})
+				in
+				    #"Changed Type"
 
 	annotation PBI_ResultType = Table
+

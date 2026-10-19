@@ -79,11 +79,12 @@ table dim_customers
 	partition dim_customers = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_customers.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", Int64.Type}, {"age", Int64.Type}, {"age_group", type text}, {"gender", type text}, {"location", type text}, {"subscription_status", type text}, {"loyalty_tier", type text}, {"cluster_id", Int64.Type}, {"customer_segment", type text}})
-			in
-			    #"Changed Type"
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\dim_customers.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_id", Int64.Type}, {"age", Int64.Type}, {"age_group", type text}, {"gender", type text}, {"location", type text}, {"subscription_status", type text}, {"loyalty_tier", type text}, {"cluster_id", Int64.Type}, {"customer_segment", type text}})
+				in
+				    #"Changed Type"
 
 	annotation PBI_ResultType = Table
+

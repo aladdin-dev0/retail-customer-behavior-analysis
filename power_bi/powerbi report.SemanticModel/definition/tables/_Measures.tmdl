@@ -80,13 +80,14 @@ table _Measures
 	measure 'Executive Dashboard Header' = "RETAIL REVENUE & GROWTH COCKPIT: UNLOCKING THE FEMALE MARKET"
 		lineageTag: e1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c
 
-	measure 'Dynamic Executive Insight' = 
-		VAR _Rate = [Female Adoption Rate Value]
-		VAR _Inc = [Simulated Incremental Revenue]
-		VAR _Lift = [Projected Revenue Lift %]
-		RETURN
-			"Targeting " & FORMAT(_Rate, "0%") & " female adoption unlocks " & FORMAT(_Inc, "$#,##0") & " new revenue (+" & FORMAT(_Lift, "0.0%") & " lift) with zero customer acquisition spend."
-		lineageTag: f2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d
+	measure 'Dynamic Executive Insight' =
+			VAR _Rate = [Female Adoption Rate Value]
+			VAR _Inc = [Simulated Incremental Revenue]
+			VAR _Lift = [Projected Revenue Lift %]
+			RETURN
+				"Targeting " & FORMAT(_Rate, "0%") & " female adoption unlocks " & FORMAT(_Inc, "$#,##0") & " new revenue (+" & FORMAT(_Lift, "0.0%") & " lift) with zero customer acquisition spend."
+			lineageTag: f2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d
+		lineageTag: 163c2042-22a6-4304-9f3b-664d622b7fb9
 
 	column Placeholder
 		dataType: string
@@ -100,9 +101,10 @@ table _Measures
 	partition _Measures = m
 		mode: import
 		source =
-			let
-			    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Placeholder = _t])
-			in
-			    Source
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Placeholder = _t])
+				in
+				    Source
 
 	annotation PBI_ResultType = Table
+

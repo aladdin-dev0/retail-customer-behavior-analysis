@@ -13,3 +13,4 @@ relationship rel_fact_to_dim_shipping
 relationship rel_fact_to_dim_payment
 	fromColumn: fact_transactions.payment_id
 	toColumn: dim_payment.payment_id
+

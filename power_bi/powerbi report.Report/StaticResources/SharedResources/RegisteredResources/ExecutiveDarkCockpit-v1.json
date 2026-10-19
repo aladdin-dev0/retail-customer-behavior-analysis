@@ -1,0 +1,100 @@
+{
+  "name": "ExecutiveDarkCockpit",
+  "dataColors": [
+    "#3B82F6",
+    "#10B981",
+    "#6366F1",
+    "#F59E0B",
+    "#EC4899",
+    "#8B5CF6",
+    "#14B8A6",
+    "#38BDF8"
+  ],
+  "foreground": "#F8FAFC",
+  "firstLevelElements": "#F8FAFC",
+  "secondLevelElements": "#94A3B8",
+  "thirdLevelElements": "#334155",
+  "fourthLevelElements": "#1E293B",
+  "secondaryBackground": "#0F172A",
+  "background": "#0B1120",
+  "backgroundLight": "#1E293B",
+  "backgroundNeutral": "#0F172A",
+  "backgroundDark": "#020617",
+  "tableAccent": "#3B82F6",
+  "textClasses": {
+    "callout": {
+      "fontSize": 24,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#F8FAFC"
+    },
+    "title": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#F8FAFC"
+    },
+    "header": {
+      "fontSize": 11,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#F8FAFC"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI",
+      "color": "#94A3B8"
+    }
+  },
+  "visualStyles": {
+    "slicer": {
+      "*": {
+        "header": [
+          {
+            "show": false
+          }
+        ],
+        "data": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "textSize": 11
+          }
+        ],
+        "items": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "textSize": 11
+          }
+        ],
+        "slider": [
+          {
+            "color": {
+              "solid": {
+                "color": "#38BDF8"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "donutChart": {
+      "*": {
+        "centerValue": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

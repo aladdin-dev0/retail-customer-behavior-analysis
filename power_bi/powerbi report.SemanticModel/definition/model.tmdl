@@ -11,6 +11,8 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBI_QueryOrder = ["dim_customers","dim_products","dim_shipping","dim_payment","fact_transactions","_Measures"]
+
 ref table dim_customers
 ref table dim_products
 ref table dim_shipping
@@ -20,3 +22,4 @@ ref table _Measures
 ref table 'Female Subscription Adoption Rate'
 
 ref cultureInfo en-US
+

@@ -6,18 +6,16 @@ table 'Female Subscription Adoption Rate'
 		lineageTag: b0e67a09-d7be-42da-98ac-2410febb2f99
 
 	column 'Female Subscription Adoption Rate'
-		dataType: double
 		formatString: 0.0%
 		lineageTag: 879db57d-5202-4851-bbc7-a7ba7c18a7d8
 		summarizeBy: none
-		isDataTypeInferred
 		sourceColumn: [Value]
 
 		extendedProperty ParameterMetadata =
-			{
-			  "version": 0,
-			  "parameterKind": 0
-			}
+				{
+				  "version": 0,
+				  "parameterKind": 0
+				}
 
 		annotation SummarizationSetBy = User
 
@@ -26,3 +24,4 @@ table 'Female Subscription Adoption Rate'
 		source = GENERATESERIES(0.0, 1.0, 0.05)
 
 	annotation PBI_Id = 9b8a7c6d5e4f3a2b1c0d
+

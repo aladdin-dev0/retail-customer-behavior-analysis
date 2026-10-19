@@ -160,11 +160,12 @@ table fact_transactions
 	partition fact_transactions = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\fact_transactions.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"transaction_id", Int64.Type}, {"customer_id", Int64.Type}, {"product_id", Int64.Type}, {"shipping_id", Int64.Type}, {"payment_id", Int64.Type}, {"season", type text}, {"purchase_amount_usd", type number}, {"review_rating", type number}, {"review_rating_imputed", Int64.Type}, {"discount_applied", type text}, {"promo_code_used", type text}, {"previous_purchases", Int64.Type}, {"frequency_of_purchases", type text}, {"annual_purchase_frequency", type number}, {"estimated_annual_spend", type number}, {"estimated_clv", type number}, {"spending_tier", type text}, {"satisfaction_level", type text}})
-			in
-			    #"Changed Type"
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\BAH\Desktop\data01\retail-customer-behavior-analysis\data\processed\fact_transactions.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"transaction_id", Int64.Type}, {"customer_id", Int64.Type}, {"product_id", Int64.Type}, {"shipping_id", Int64.Type}, {"payment_id", Int64.Type}, {"season", type text}, {"purchase_amount_usd", type number}, {"review_rating", type number}, {"review_rating_imputed", Int64.Type}, {"discount_applied", type text}, {"promo_code_used", type text}, {"previous_purchases", Int64.Type}, {"frequency_of_purchases", type text}, {"annual_purchase_frequency", type number}, {"estimated_annual_spend", type number}, {"estimated_clv", type number}, {"spending_tier", type text}, {"satisfaction_level", type text}})
+				in
+				    #"Changed Type"
 
 	annotation PBI_ResultType = Table
+
