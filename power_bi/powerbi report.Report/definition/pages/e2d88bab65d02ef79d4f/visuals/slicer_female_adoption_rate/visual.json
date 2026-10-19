@@ -47,7 +47,7 @@
           }
         }
       ],
-      "input": [
+      "items": [
         {
           "properties": {
             "fontColor": {
@@ -61,7 +61,7 @@
                 }
               }
             },
-            "backgroundColor": {
+            "background": {
               "solid": {
                 "color": {
                   "expr": {
@@ -72,21 +72,10 @@
                 }
               }
             },
-            "borderColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#38BDF8'"
-                    }
-                  }
-                }
-              }
-            },
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "11D"
                 }
               }
             }

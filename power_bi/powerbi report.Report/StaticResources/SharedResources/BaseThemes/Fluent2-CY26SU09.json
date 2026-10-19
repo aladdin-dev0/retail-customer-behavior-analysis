@@ -502,7 +502,13 @@
         ],
         "centerValue": [
           {
-            "show": true
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "fontSize": 14
           }
         ],
         "dataPoint": [
@@ -2009,8 +2015,19 @@
         ],
         "items": [
           {
-            "padding": 8,
-            "accessibilityContrastProperties": true
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "outline": "Frame",
+            "textSize": 11,
+            "fontFamily": "Segoe UI Semibold"
           }
         ],
         "title": [
@@ -4542,5 +4559,10 @@
         ]
       }
     }
-  }
+  },
+  "firstLevelElements": "#F8FAFC",
+  "secondLevelElements": "#94A3B8",
+  "thirdLevelElements": "#334155",
+  "fourthLevelElements": "#1E293B",
+  "secondaryBackground": "#0F172A"
 }
