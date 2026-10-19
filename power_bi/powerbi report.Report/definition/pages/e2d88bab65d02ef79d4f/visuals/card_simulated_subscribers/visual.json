@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "Card_Simulated_Subscribers",
   "position": {
-    "x": 40,
-    "y": 675,
-    "z": 7500,
-    "width": 440,
-    "height": 115,
-    "tabOrder": 7500
+    "x": 265.0,
+    "y": 540.0,
+    "z": 7500.0,
+    "width": 215.0,
+    "height": 120.0,
+    "tabOrder": 7500.0
   },
   "visual": {
     "visualType": "card",
@@ -64,7 +64,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "28D"
+                  "Value": "30D"
                 }
               }
             }
@@ -135,7 +135,7 @@
             "width": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "1.5D"
                 }
               }
             }
@@ -188,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'👥 NEW FEMALE SUBSCRIBERS UNLOCKED'"
+                  "Value": "'\ud83d\udc65 NEW SUBSCRIBERS'"
                 }
               }
             },
