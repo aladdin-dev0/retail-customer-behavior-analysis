@@ -3,10 +3,10 @@
   "name": "Card_Subscription_Rate",
   "position": {
     "x": 1435.0,
-    "y": 85.0,
+    "y": 100.0,
     "z": 4000.0,
     "width": 435.0,
-    "height": 95.0,
+    "height": 125.0,
     "tabOrder": 4000.0
   },
   "visual": {
@@ -64,7 +64,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "26D"
+                  "Value": "30D"
                 }
               }
             }
@@ -128,7 +128,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "12D"
                 }
               }
             },
@@ -175,14 +175,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SUBSCRIPTION PENETRATION'"
+                  "Value": "'CURRENT SUBSCRIPTION PENETRATION'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "11D"
                 }
               }
             },
@@ -199,44 +199,6 @@
                   "expr": {
                     "Literal": {
                       "Value": "'#F8FAFC'"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'27.0% Overall (100% Male - Legacy Model)'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "8.5D"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#94A3B8'"
                     }
                   }
                 }

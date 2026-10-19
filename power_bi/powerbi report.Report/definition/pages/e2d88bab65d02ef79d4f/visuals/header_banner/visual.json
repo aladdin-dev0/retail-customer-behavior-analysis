@@ -6,7 +6,7 @@
     "y": 15.0,
     "z": 500.0,
     "width": 1840.0,
-    "height": 55.0,
+    "height": 70.0,
     "tabOrder": 500.0
   },
   "visual": {
@@ -128,7 +128,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "12D"
                 }
               }
             },
@@ -175,14 +175,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'STRATEGIC EXECUTIVE COCKPIT: UNLOCKING THE FEMALE MARKET OPPORTUNITY'"
+                  "Value": "'RETAIL REVENUE & GROWTH COCKPIT: UNLOCKING THE FEMALE MARKET'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "16D"
                 }
               }
             },
@@ -220,14 +220,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Core Objective: Baseline Revenue Structure ($233K) & Quantifying Financial Impact of Female Subscriptions'"
+                  "Value": "'Core Business Question: Where does revenue come from today, and what is the exact financial impact of unlocking female subscriptions?'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8.5D"
+                  "Value": "10.5D"
                 }
               }
             },

@@ -3,10 +3,10 @@
   "name": "Card_Simulated_Incremental_Revenue",
   "position": {
     "x": 505.0,
-    "y": 520.0,
+    "y": 540.0,
     "z": 8000.0,
     "width": 455.0,
-    "height": 300.0,
+    "height": 250.0,
     "tabOrder": 8000.0
   },
   "visual": {
@@ -182,7 +182,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "11D"
                 }
               }
             },
@@ -220,14 +220,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Unlocks up to +$84.2K at 50% target adoption (CAC = $0)'"
+                  "Value": "'Pure organic revenue unlocked with zero CAC'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "8.5D"
+                  "Value": "9D"
                 }
               }
             },
