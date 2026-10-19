@@ -2017,17 +2017,11 @@
           {
             "fontColor": {
               "solid": {
-                "color": "#F8FAFC"
+                "color": "#38BDF8"
               }
             },
-            "background": {
-              "solid": {
-                "color": "#0F172A"
-              }
-            },
-            "outline": "Frame",
-            "textSize": 11,
-            "fontFamily": "Segoe UI Semibold"
+            "textSize": 14,
+            "fontFamily": "Segoe UI Bold"
           }
         ],
         "title": [
@@ -2093,16 +2087,11 @@
           {
             "fontColor": {
               "solid": {
-                "color": "#F8FAFC"
+                "color": "#38BDF8"
               }
             },
-            "background": {
-              "solid": {
-                "color": "#0F172A"
-              }
-            },
-            "textSize": 11,
-            "fontFamily": "Segoe UI Semibold"
+            "textSize": 14,
+            "fontFamily": "Segoe UI Bold"
           }
         ]
       }
@@ -4576,8 +4565,8 @@
       }
     }
   },
-  "firstLevelElements": "#F8FAFC",
-  "secondLevelElements": "#94A3B8",
+  "firstLevelElements": "#38BDF8",
+  "secondLevelElements": "#38BDF8",
   "thirdLevelElements": "#334155",
   "fourthLevelElements": "#1E293B",
   "secondaryBackground": "#0F172A"

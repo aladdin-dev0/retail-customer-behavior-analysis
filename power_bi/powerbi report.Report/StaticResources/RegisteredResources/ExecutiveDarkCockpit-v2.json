@@ -1,0 +1,131 @@
+{
+  "name": "ExecutiveDarkCockpit-v2",
+  "dataColors": [
+    "#3B82F6",
+    "#10B981",
+    "#6366F1",
+    "#F59E0B",
+    "#EC4899",
+    "#8B5CF6",
+    "#14B8A6",
+    "#38BDF8"
+  ],
+  "foreground": "#F8FAFC",
+  "firstLevelElements": "#38BDF8",
+  "secondLevelElements": "#38BDF8",
+  "thirdLevelElements": "#1E293B",
+  "fourthLevelElements": "#0F172A",
+  "secondaryBackground": "#0F172A",
+  "background": "#0B1120",
+  "backgroundLight": "#1E293B",
+  "backgroundNeutral": "#0F172A",
+  "backgroundDark": "#020617",
+  "tableAccent": "#38BDF8",
+  "textClasses": {
+    "callout": {
+      "fontSize": 24,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#F8FAFC"
+    },
+    "title": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#F8FAFC"
+    },
+    "header": {
+      "fontSize": 11,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#F8FAFC"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI",
+      "color": "#94A3B8"
+    }
+  },
+  "visualStyles": {
+    "slicer": {
+      "*": {
+        "header": [
+          {
+            "show": false
+          }
+        ],
+        "data": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#38BDF8"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "textSize": 14,
+            "fontSize": 14,
+            "fontFamily": "Segoe UI Bold"
+          }
+        ],
+        "items": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#38BDF8"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "outline": "Frame",
+            "textSize": 14,
+            "fontSize": 14,
+            "fontFamily": "Segoe UI Bold"
+          }
+        ],
+        "values": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#38BDF8"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "fontSize": 14,
+            "fontFamily": "Segoe UI Bold"
+          }
+        ],
+        "slider": [
+          {
+            "color": {
+              "solid": {
+                "color": "#38BDF8"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "donutChart": {
+      "*": {
+        "centerValue": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

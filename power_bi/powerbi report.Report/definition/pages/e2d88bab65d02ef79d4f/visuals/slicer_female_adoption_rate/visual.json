@@ -51,25 +51,12 @@
       "data": [
         {
           "properties": {
-            "numericStart": {
-              "expr": {
-                "Literal": {
-                  "Value": "0.39999999999999997D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "items": [
-        {
-          "properties": {
             "fontColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F8FAFC'"
+                      "Value": "'#38BDF8'"
                     }
                   }
                 }
@@ -89,7 +76,112 @@
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38BDF8'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0F172A'"
+                    }
+                  }
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38BDF8'"
+                    }
+                  }
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0F172A'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -108,48 +200,6 @@
                     }
                   }
                 }
-              }
-            }
-          }
-        }
-      ],
-      "general": [
-        {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "f",
-                    "Entity": "Female Subscription Adoption Rate",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Comparison": {
-                        "ComparisonKind": 0,
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "f"
-                              }
-                            },
-                            "Property": "Female Subscription Adoption Rate"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "0.39999999999999997D"
-                          }
-                        }
-                      }
-                    }
-                  }
-                ]
               }
             }
           }
@@ -272,7 +322,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'🎮 SIMULATION LEVER: FEMALE ADOPTION RATE'"
+                  "Value": "'\ud83c\udfae SIMULATION LEVER: FEMALE ADOPTION RATE'"
                 }
               }
             },

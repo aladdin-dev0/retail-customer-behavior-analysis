@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "ExecutiveDarkCockpit-v1.json",
+      "name": "ExecutiveDarkCockpit-v2.json",
       "reportVersionAtImport": {
         "visual": "2.13.0",
         "report": "3.4.0",
@@ -65,8 +65,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "ExecutiveDarkCockpit-v1.json",
-          "path": "ExecutiveDarkCockpit-v1.json",
+          "name": "ExecutiveDarkCockpit-v2.json",
+          "path": "ExecutiveDarkCockpit-v2.json",
           "type": "CustomTheme"
         }
       ]
