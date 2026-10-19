@@ -6,7 +6,7 @@
     "y": 540.0,
     "z": 7000.0,
     "width": 440.0,
-    "height": 115.0,
+    "height": 125.0,
     "tabOrder": 7000.0
   },
   "visual": {
@@ -40,10 +40,16 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
-            },
+            }
+          }
+        }
+      ],
+      "input": [
+        {
+          "properties": {
             "fontColor": {
               "solid": {
                 "color": {
@@ -55,10 +61,32 @@
                 }
               }
             },
+            "backgroundColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0F172A'"
+                    }
+                  }
+                }
+              }
+            },
+            "borderColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38BDF8'"
+                    }
+                  }
+                }
+              }
+            },
             "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9.5D"
+                  "Value": "10D"
                 }
               }
             }
@@ -173,6 +201,19 @@
           }
         }
       ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "title": [
         {
           "properties": {
@@ -193,7 +234,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "10.5D"
                 }
               }
             },
