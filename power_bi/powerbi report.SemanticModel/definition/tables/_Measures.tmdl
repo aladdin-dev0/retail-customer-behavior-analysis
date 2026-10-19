@@ -85,7 +85,7 @@ table _Measures
 		VAR _Inc = [Simulated Incremental Revenue]
 		VAR _Lift = [Projected Revenue Lift %]
 		RETURN
-			"Targeting a " & FORMAT(_Rate, "0%") & " female subscription adoption unlocks " & FORMAT(_Inc, "$#,##0") & " in incremental annual revenue (a " & FORMAT(_Lift, "+0.0%") & " total revenue lift) with ZERO extra customer acquisition cost (CAC)."
+			"Targeting " & FORMAT(_Rate, "0%") & " female adoption unlocks " & FORMAT(_Inc, "$#,##0") & " new revenue (+" & FORMAT(_Lift, "0.0%") & " lift) with zero customer acquisition spend."
 		lineageTag: f2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d
 
 	column Placeholder
