@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "Card_Subscription_Rate",
   "position": {
-    "x": 1435,
-    "y": 100,
-    "z": 4000,
-    "width": 435,
-    "height": 125,
-    "tabOrder": 4000
+    "x": 1435.0,
+    "y": 100.0,
+    "z": 4000.0,
+    "width": 435.0,
+    "height": 125.0,
+    "tabOrder": 4000.0
   },
   "visual": {
     "visualType": "card",

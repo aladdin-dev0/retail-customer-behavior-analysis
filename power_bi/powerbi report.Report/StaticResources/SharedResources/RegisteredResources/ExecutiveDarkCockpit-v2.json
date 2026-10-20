@@ -20,7 +20,7 @@
   "backgroundLight": "#1E293B",
   "backgroundNeutral": "#0F172A",
   "backgroundDark": "#020617",
-  "tableAccent": "#38BDF8",
+  "tableAccent": "#3B82F6",
   "textClasses": {
     "callout": {
       "fontSize": 24,
@@ -82,22 +82,6 @@
             },
             "outline": "Frame",
             "textSize": 14,
-            "fontSize": 14,
-            "fontFamily": "Segoe UI Bold"
-          }
-        ],
-        "values": [
-          {
-            "fontColor": {
-              "solid": {
-                "color": "#38BDF8"
-              }
-            },
-            "background": {
-              "solid": {
-                "color": "#0F172A"
-              }
-            },
             "fontSize": 14,
             "fontFamily": "Segoe UI Bold"
           }

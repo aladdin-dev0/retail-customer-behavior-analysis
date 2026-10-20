@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "Card_Simulated_Subscribers",
   "position": {
-    "x": 265,
-    "y": 540,
-    "z": 7500,
-    "width": 215,
-    "height": 120,
-    "tabOrder": 7500
+    "x": 265.0,
+    "y": 540.0,
+    "z": 7500.0,
+    "width": 215.0,
+    "height": 120.0,
+    "tabOrder": 7500.0
   },
   "visual": {
     "visualType": "card",
@@ -188,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'👥 NEW SUBSCRIBERS'"
+                  "Value": "'\ud83d\udc65 NEW SUBSCRIBERS'"
                 }
               }
             },
