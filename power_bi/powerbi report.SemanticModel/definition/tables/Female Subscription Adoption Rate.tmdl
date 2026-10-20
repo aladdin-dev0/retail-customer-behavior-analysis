@@ -21,7 +21,7 @@ table 'Female Subscription Adoption Rate'
 
 	partition 'Female Subscription Adoption Rate' = calculated
 		mode: import
-		source = GENERATESERIES(0.0, 1.0, 0.05)
+		source = GENERATESERIES(0.0, 1.01, 0.05)
 
 	annotation PBI_Id = 9b8a7c6d5e4f3a2b1c0d
 

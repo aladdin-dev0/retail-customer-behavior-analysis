@@ -563,7 +563,7 @@ def build_powerbi_model():
 
 \tpartition 'Female Subscription Adoption Rate' = calculated
 \t\tmode: import
-\t\tsource = GENERATESERIES(0.0, 1.0, 0.05)
+\t\tsource = GENERATESERIES(0.0, 1.01, 0.05)
 
 \tannotation PBI_Id = 9b8a7c6d5e4f3a2b1c0d
 """
