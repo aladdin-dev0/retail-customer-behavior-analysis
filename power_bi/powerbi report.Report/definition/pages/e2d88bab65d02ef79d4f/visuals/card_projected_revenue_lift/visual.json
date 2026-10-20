@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "Card_Projected_Revenue_Lift",
   "position": {
-    "x": 1435.0,
-    "y": 540.0,
-    "z": 10000.0,
-    "width": 435.0,
-    "height": 250.0,
-    "tabOrder": 10000.0
+    "x": 1435,
+    "y": 540,
+    "z": 10000,
+    "width": 435,
+    "height": 250,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "card",

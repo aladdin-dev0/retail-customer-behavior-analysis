@@ -64,11 +64,7 @@ retail-customer-behavior-analysis/
 ├── src/
 │   ├── 01_data_cleaning.py                   # Data cleansing & Star Schema export
 │   ├── 02_customer_segmentation.py           # K-Means clustering (K=4) & profiling
-│   ├── 03_generate_visualizations.py         # Visual chart generation (7 PNG figures)
-│   ├── 04_generate_powerpoint.py             # Generates native 16:9 PPTX presentation
-│   ├── 05_build_powerbi_model.py             # Generates Fabric TMDL semantic model & measures
-│   ├── 06_build_final_dashboard.py           # Generates 13 visual containers & dark theme
-│   └── archive/                              # Safe historical archive of iteration scripts
+│   └── 03_generate_visualizations.py         # Visual chart generation (7 PNG figures)
 │
 ├── sql/
 │   ├── 01_schema_setup.sql                   # DDL scripts, tables, foreign keys, views
@@ -98,6 +94,7 @@ retail-customer-behavior-analysis/
 │   └── 07_loyalty_clv_comparison.png         # Lifetime value by loyalty tier
 │
 ├── .gitignore
+├── LICENSE                                   # Standard MIT License
 ├── requirements.txt                          # Python dependencies
 └── README.md                                 # Project documentation
 ```
@@ -117,8 +114,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Execute End-to-End Analytical Pipeline
-Run the 6 automated pipeline steps sequentially:
+### 2. Execute Python Data & ML Pipeline
+Run the core analytical steps sequentially:
 ```bash
 # 1. Clean data and generate Star Schema CSVs
 python src/01_data_cleaning.py
@@ -128,16 +125,11 @@ python src/02_customer_segmentation.py
 
 # 3. Generate 7 publication-ready figures
 python src/03_generate_visualizations.py
-
-# 4. Generate native 16:9 PowerPoint presentation
-python src/04_generate_powerpoint.py
-
-# 5. Build Fabric TMDL semantic model & 18 DAX measures
-python src/05_build_powerbi_model.py
-
-# 6. Build final panoramic 1920x820 Executive Power BI Cockpit
-python src/06_build_final_dashboard.py
 ```
+
+> **Direct Deliverables:**
+> - **PowerPoint Presentation:** Ready to open at [`reports/retail_customer_behavior_presentation.pptx`](reports/retail_customer_behavior_presentation.pptx).
+> - **Power BI Cockpit:** Ready to launch directly at [`power_bi/powerbi report.pbip`](power_bi/powerbi%20report.pbip) (or as standalone `.pbix`).
 
 ### 3. Run Relational SQL Engine
 ```bash

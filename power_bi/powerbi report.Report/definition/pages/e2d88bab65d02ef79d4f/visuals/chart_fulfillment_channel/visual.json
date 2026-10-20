@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "Chart_Fulfillment_Channel",
   "position": {
-    "x": 1145.0,
-    "y": 240.0,
-    "z": 6000.0,
-    "width": 735.0,
-    "height": 285.0,
-    "tabOrder": 6000.0
+    "x": 1144.5773399826896,
+    "y": 239.71973787248072,
+    "z": 6000,
+    "height": 285.3002514116144,
+    "width": 725.91188228990643,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "donutChart",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_shipping.sales_channel",
-              "nativeQueryRef": "sales_channel"
+              "nativeQueryRef": "sales_channel",
+              "active": true
             }
           ]
         },
@@ -114,24 +115,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#F8FAFC'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
                 }
               }
             }

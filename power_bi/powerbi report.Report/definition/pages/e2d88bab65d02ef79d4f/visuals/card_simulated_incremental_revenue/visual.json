@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
   "name": "Card_Simulated_Incremental_Revenue",
   "position": {
-    "x": 505.0,
-    "y": 540.0,
-    "z": 8000.0,
-    "width": 455.0,
-    "height": 250.0,
-    "tabOrder": 8000.0
+    "x": 505,
+    "y": 540,
+    "z": 8000,
+    "width": 455,
+    "height": 250,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "card",
@@ -188,7 +188,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'\u2b50 PROJECTED INCREMENTAL REVENUE (HERO METRIC)'"
+                  "Value": "'⭐ PROJECTED INCREMENTAL REVENUE (HERO METRIC)'"
                 }
               }
             },
