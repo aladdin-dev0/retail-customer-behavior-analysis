@@ -507,7 +507,7 @@ def create_deck():
     actions = [
         "Phase 1 (Days 1–30): Sunset blanket promo codes in favor of $75+ spend thresholds. Audit legacy male-only email lists.",
         "Phase 2 (Days 31–60): Launch curated female lifestyle subscription pilot. Target initial 25% female cohort with onboarding gifts.",
-        "Phase 3 (Days 61–90): Operationalize K-Means behavioral segments into marketing CRM. Roll out VIP concierge loyalty tier."
+        "Phase 3 (Days 61–90): Deploy Power BI 1920x820 Executive Dark Cockpit (powerbi report.pbip) with real-time What-If simulation slider."
     ]
     for act in actions:
         ap = ebtf.add_paragraph()

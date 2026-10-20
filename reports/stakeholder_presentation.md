@@ -144,18 +144,18 @@ flowchart LR
 
 ---
 
-## Slide 10: Conclusion & Next Steps
+## Slide 10: Executive Decision Cockpit & Next Steps
 ### Tangible Impact on Enterprise EBITDA
 
 - **Expected Financial Uplift:**
-  - **+\$55,000** in incremental female subscription & repeat purchases.
+  - **+\$55,000 to +\$115,000** in incremental female subscription & repeat purchases.
   - **+\$28,000** in margin protection by eliminating unneeded blanket discounts.
   - **+\$18,000** in attached in-store revenue from BOPIS customer traffic.
-  - **Total Projected Value: ~\$100,000+ incremental EBITDA** on current baseline.
-- **Immediate Next Steps:**
-  1. Authorize the Female Loyalty Pilot Program.
-  2. Implement threshold rules in the promotional engine.
-  3. Deploy the Power BI executive dashboard for weekly management tracking.
+  - **Total Projected Value: ~\$100,000+ to \$160,000+ incremental EBITDA** on current baseline.
+- **Immediate Executive Next Steps:**
+  1. **Authorize the "Omni-Her" Female Loyalty Pilot:** Target 40% initial penetration (+562 members).
+  2. **Implement Threshold Pricing:** Replace blanket promo codes with *"Spend \$85, Save \$15"* rules.
+  3. **Launch the Power BI Executive Cockpit:** Deploy [`power_bi/powerbi report.pbip`](file:///C:/Users/BAH/Desktop/data01/retail-customer-behavior-analysis/power_bi/powerbi%20report.pbip) (1920×820 panoramic dark theme with real-time What-If slider) for executive tracking.
 
 ---
 *Thank you. We welcome questions and discussion from the Board.*

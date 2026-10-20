@@ -485,9 +485,53 @@
             <ol style="margin-left: 20px; margin-top: 10px; font-size:0.95rem;">
                 <li style="margin-bottom:8px;"><strong>Days 1-30:</strong> Launch the "Omni-Her" female loyalty pilot program offering early access to seasonal lines and complimentary gift packaging.</li>
                 <li style="margin-bottom:8px;"><strong>Days 31-60:</strong> Sunset blanket discount promo codes and replace with threshold rules (<em>"Spend $85, Save $15"</em>) to lift AOV past $75+.</li>
-                <li style="margin-bottom:8px;"><strong>Days 61-90:</strong> Deploy Power BI executive dashboard for weekly tracking and place impulse accessory kiosks at all In-Store Pickup counters.</li>
+                <li style="margin-bottom:8px;"><strong>Days 61-90:</strong> Deploy the panoramic 1920x820 Power BI executive cockpit for weekly tracking and place impulse accessory kiosks at all In-Store Pickup counters.</li>
             </ol>
         </div>
+
+        <!-- Section: Technical Deliverables -->
+        <h2>9. Enterprise Deliverables & Business Intelligence Architecture</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Deliverable</th>
+                    <th>Location in Repository</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Power BI Executive Cockpit</strong></td>
+                    <td><code>power_bi/powerbi report.pbip</code></td>
+                    <td>Panoramic 1920×820 single-page Fabric PBIP cockpit with 13 visual containers, Executive Dark Theme (v2), and real-time What-If simulation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Unified Cockpit Builder</strong></td>
+                    <td><code>src/06_build_final_dashboard.py</code></td>
+                    <td>Automated Python script generating the entire production visual layout and registering theme assets.</td>
+                </tr>
+                <tr>
+                    <td><strong>Semantic Model (TMDL)</strong></td>
+                    <td><code>power_bi/powerbi report.SemanticModel/</code></td>
+                    <td>Tabular dimensional model featuring 5 Kimball tables, 18 DAX production measures, and dynamic numeric series parameter.</td>
+                </tr>
+                <tr>
+                    <td><strong>Executive Slide Deck (PPTX)</strong></td>
+                    <td><code>reports/retail_customer_behavior_presentation.pptx</code></td>
+                    <td>Native 16:9 widescreen boardroom presentation deck embedding 7 publication-ready figures.</td>
+                </tr>
+                <tr>
+                    <td><strong>Interactive Web Presentation</strong></td>
+                    <td><code>reports/interactive_presentation.html</code></td>
+                    <td>Full-screen browser presentation matching the PowerPoint deck with keyboard navigation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Relational SQL Engine</strong></td>
+                    <td><code>sql/run_sql_analysis.py</code></td>
+                    <td>SQLite engine executing 10 analytical business queries with documented markdown output tables.</td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 </div>

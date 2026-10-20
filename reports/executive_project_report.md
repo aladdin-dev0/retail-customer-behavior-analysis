@@ -32,7 +32,7 @@ flowchart TD
     B --> C["K-Means Behavioral Segmentation (4 Segments)"]
     B --> D["Relational Star Schema (5 Normalized Tables)"]
     D --> E["SQLite Analytical Engine (12 Business Queries)"]
-    D --> F["Power BI Dashboard (4 Interactive Pages)"]
+    D --> F["Power BI Executive Revenue Cockpit (1920x820 Dark Mode PBIP)"]
     E --> G["Actionable Strategic Recommendations"]
     F --> G
 ```
@@ -188,11 +188,11 @@ pie title Customer Segment Distribution
 | :--- | :--- | :--- |
 | **Python Cleaning & Modeling** | `src/01_data_cleaning.py` | Automated cleaning, missing value imputation, 8 engineered features, Star Schema export. |
 | **K-Means Segmentation** | `src/02_customer_segmentation.py` | StandardScaler, Elbow & Silhouette evaluation, K=4 cluster assignment. |
-| **Visual Charts Engine** | `src/03_generate_visualizations.py` | Publication-ready visual exhibits for dashboards and executive presentations. |
-| **SQL Schema Setup** | `sql/01_schema_setup.sql` | DDL for 5 relational tables, primary/foreign keys, indexes, and analytical view. |
-| **SQL Business Queries** | `sql/02_business_queries.sql` | 12 production queries answering executive, demographic, loyalty, and RFM questions. |
-| **SQL Automated Runner** | `sql/run_sql_analysis.py` | In-memory SQLite execution engine generating markdown query results. |
-| **Power BI Star Schema Model** | `power_bi/data_model_star_schema.md` | Kimball dimensional architecture, relationship specs, formatting rules. |
-| **Power BI DAX Measures** | `power_bi/dax_measures.md` | Production DAX library covering revenue, AOV, penetration rates, and CLV. |
-| **Power BI Dashboard Blueprint** | `power_bi/power_bi_dashboard_guide.md` | Complete visual layout, canvas wireframes, slicers, and narrative flow for 4 pages. |
-| **Stakeholder Presentation** | `reports/stakeholder_presentation.md` | 10-slide C-suite slide deck with executive talking notes. |
+| **Visual Charts Engine** | `src/03_generate_visualizations.py` | Publication-ready visual exhibits (7 high-res figures) for executive presentations. |
+| **Executive Presentation (PPTX)** | `src/04_generate_powerpoint.py` | Automated generator producing the native 16:9 executive PowerPoint slide deck. |
+| **Power BI Semantic Model (TMDL)** | `src/05_build_powerbi_model.py` | Deploys Fabric TMDL semantic model, dimensional relationships, and 18 core DAX measures. |
+| **Power BI Executive Cockpit** | `src/06_build_final_dashboard.py` | Generates panoramic 1920x820 executive dark cockpit with 13 production visuals & What-If slider. |
+| **Power BI Project (.pbip)** | `power_bi/powerbi report.pbip` | Native Power BI Developer Mode entry point ready for immediate C-suite interaction. |
+| **SQL Schema & Queries** | `sql/01_schema_setup.sql`, `sql/02_business_queries.sql` | DDL schema and 10 production SQL queries answering executive, demographic, and RFM questions. |
+| **Executive Board Report** | `reports/executive_report.html` | Styled, print-ready HTML & PDF-ready formal board report. |
+| **Interactive Web Presentation** | `reports/interactive_presentation.html` | Standalone full-screen browser presentation matching the slide deck. |
